@@ -4,7 +4,7 @@ import React from 'react'
 import Calendar from './'
 import renderer from 'react-test-renderer'
 
-test('Something', () => {
+test('Calendar displays the same', () => {
   const component = renderer.create(
     <Calendar />
   )

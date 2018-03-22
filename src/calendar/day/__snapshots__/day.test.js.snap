@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Day renders the same 1`] = `
+.css-0,
+[data-css-0] {
+  position: relative;
+  height: 2.5em;
+  width: 2.5em;
+  margin: 0.125em;
+  line-height: 2.5em;
+  text-align: center;
+  background-color: orangered;
+}
+
+.css-0:hover,
+[data-css-0]:hover {
+  background-color: darkblue;
+}
+
+<div
+  className="css-0"
+>
+  22
+</div>
+`;
