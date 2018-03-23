@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Month /> appearance displays the same 1`] = `
+.css-0,
+[data-css-0] {
+  position: relative;
+  overflow: hidden;
+  padding: 0.5em;
+  width: 17.5em;
+  background-color: silver;
+}
+
+<div
+  className="css-0"
+/>
+`;
