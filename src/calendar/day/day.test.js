@@ -10,7 +10,7 @@ import Adaptor from 'enzyme-adapter-react-16'
 Enzyme.configure({adapter: new Adaptor()})
 expect.addSnapshotSerializer(serializer)
 
-describe('<Day />', () => {
+describe('<Day /> appearance', () => {
   test('renders the same each time', () => {
     const component = renderer.create(
       <Day date={new Date(2018, 2, 23)} />
@@ -19,7 +19,9 @@ describe('<Day />', () => {
     let tree = component.toJSON()
     expect(tree).toMatchSnapshot()
   })
+})
 
+describe('<Day /> functionality', () => {
   test('displays proper date', () => {
     const day = mount(<Day date={new Date(2018, 2, 2)} />)
     expect(day.text()).toEqual('2')
