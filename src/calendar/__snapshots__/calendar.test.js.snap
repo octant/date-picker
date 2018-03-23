@@ -27,6 +27,42 @@ exports[`<Calendar /> appearance displays the same 1`] = `
     className="css-0"
     onClick={[Function]}
   >
+    26
+  </div>
+  <div
+    className="css-0"
+    onClick={[Function]}
+  >
+    27
+  </div>
+  <div
+    className="css-0"
+    onClick={[Function]}
+  >
+    28
+  </div>
+  <div
+    className="css-0"
+    onClick={[Function]}
+  >
+    29
+  </div>
+  <div
+    className="css-0"
+    onClick={[Function]}
+  >
+    30
+  </div>
+  <div
+    className="css-0"
+    onClick={[Function]}
+  >
+    31
+  </div>
+  <div
+    className="css-0"
+    onClick={[Function]}
+  >
     1
   </div>
   <div
@@ -207,12 +243,6 @@ exports[`<Calendar /> appearance displays the same 1`] = `
     className="css-0"
     onClick={[Function]}
   >
-    31
-  </div>
-  <div
-    className="css-0"
-    onClick={[Function]}
-  >
     1
   </div>
   <div
@@ -244,36 +274,6 @@ exports[`<Calendar /> appearance displays the same 1`] = `
     onClick={[Function]}
   >
     6
-  </div>
-  <div
-    className="css-0"
-    onClick={[Function]}
-  >
-    7
-  </div>
-  <div
-    className="css-0"
-    onClick={[Function]}
-  >
-    8
-  </div>
-  <div
-    className="css-0"
-    onClick={[Function]}
-  >
-    9
-  </div>
-  <div
-    className="css-0"
-    onClick={[Function]}
-  >
-    10
-  </div>
-  <div
-    className="css-0"
-    onClick={[Function]}
-  >
-    11
   </div>
 </div>
 `;

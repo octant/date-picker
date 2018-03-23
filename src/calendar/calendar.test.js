@@ -16,7 +16,7 @@ expect.addSnapshotSerializer(serializer)
 describe('<Calendar /> appearance', () => {
   test('displays the same', () => {
     const component = renderer.create(
-      <Calendar />
+      <Calendar selected='2019-06-04' />
     )
 
     let tree = component.toJSON()
@@ -25,14 +25,37 @@ describe('<Calendar /> appearance', () => {
 })
 
 describe('<Calendar /> functionality', () => {
+  test('sets an "id" property on each day', () => {
+    const calendar = mount(<Calendar />)
+
+    expect(calendar.find({id: '2018-03-22'}).length).toBe(1)
+  })
+
+  test('defaults to current month if a "selected" prop is not passed', () => {
+    const date = new Date()
+    const dateString = `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`
+    const calendar = mount(<Calendar />)
+
+    expect(calendar.find({id: dateString}).length).toBe(1)
+  })
+
+  test('loads correct dates when passed a selected date', () => {
+    const date = new Date(2017, 11, 25)
+    const dateString = `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`
+
+    const calendar = mount(<Calendar selected={dateString} />)
+
+    expect(calendar.find({id: dateString}).length).toBe(1)
+  })
+
   test('the selected day is set when a Day is clicked', () => {
     const date = new Date()
-    const dateString = `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-01`
+    const dateString = `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`
     const calendar = mount(
       <Calendar />
     )
 
-    calendar.find(Day).first().simulate('click')
+    calendar.find({id: dateString}).first().simulate('click')
 
     expect(calendar.state().selected).toEqual(dateString)
   })
@@ -69,8 +92,6 @@ describe('<Calendar /> functionality', () => {
     Calendar.prototype._handleClick.restore()
   })
 
-  test('defaults to current month if a "selected" prop is not passed')
-  test('loads correct dates when passed a selected date')
   test('loads the next month when next is clicked')
   test('loads the previous month when previous is clicked')
 })

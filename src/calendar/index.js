@@ -1,10 +1,25 @@
 import React from 'react'
 
+import {
+  buildCalendar,
+  getCurrentMonth,
+  normalizeDate,
+  toDateString
+} from '../lib/calendar-fns'
 import Day from './day'
 
 class Calendar extends React.Component {
   constructor (props) {
     super(props)
+
+    const selected = props.selected || toDateString(new Date())
+    const currentDate = normalizeDate(selected)
+
+    this.state = {
+      currentDate: currentDate,
+      calendar: buildCalendar(getCurrentMonth(currentDate)),
+      selected: props.selected || ''
+    }
 
     this._handleClick = this._handleClick.bind(this)
   }
@@ -18,9 +33,11 @@ class Calendar extends React.Component {
   render () {
     const days = []
 
-    for (let i = 1; i <= 42; i++) {
-      days.push(<Day key={i} date={new Date(2018, 2, i)} clickMethod={this._handleClick} />)
-    }
+    this.state.calendar.forEach((day, i) => {
+      const dateString = toDateString(day)
+      days.push(<Day key={i} id={dateString} date={day} clickMethod={this._handleClick} />)
+    })
+
     return (
       <div>
         <h1>Calendar</h1>
