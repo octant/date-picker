@@ -9,6 +9,8 @@ export const Day = glamorous.div({
   textAlign: `center`,
   backgroundColor: 'orangered',
   ':hover': {
+    cursor: 'pointer',
+    color: 'white',
     backgroundColor: 'darkblue'
   }
 })
