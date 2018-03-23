@@ -25,6 +25,18 @@ describe('<Calendar /> appearance', () => {
 })
 
 describe('<Calendar /> functionality', () => {
+  test('the selected day is set when a Day is clicked', () => {
+    const date = new Date()
+    const dateString = `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-01`
+    const calendar = mount(
+      <Calendar />
+    )
+
+    calendar.find(Day).first().simulate('click')
+
+    expect(calendar.state().selected).toEqual(dateString)
+  })
+
   test('has 42 instances of Day', () => {
     const calendar = mount(<Calendar />)
 
@@ -57,6 +69,7 @@ describe('<Calendar /> functionality', () => {
     Calendar.prototype._handleClick.restore()
   })
 
+  test('defaults to current month if a "selected" prop is not passed')
   test('loads correct dates when passed a selected date')
   test('loads the next month when next is clicked')
   test('loads the previous month when previous is clicked')
