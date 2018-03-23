@@ -1,6 +1,11 @@
 /* eslint-env jest */
 
-import {getPreviousMonth, getNextMonth} from './calendar-fns'
+import {
+  getPreviousMonth,
+  getNextMonth,
+  normalizeDate,
+  toDateString
+} from './calendar-fns'
 
 describe('Previous month function', () => {
   test('gets the first date to display for the previous month', () => {
@@ -53,5 +58,21 @@ describe('Next month function', () => {
 
     expect(firstDay.getDate()).toBe(30)
     expect(firstDay.getMonth()).toBe(3)
+  })
+})
+
+describe('toDateString', () => {
+  test('returns a date string of yyyy-mm-dd', () => {
+    const date = new Date(2018, 2, 23)
+
+    expect(toDateString(date)).toEqual('2018-03-23')
+  })
+})
+
+describe('normalizeDate', () => {
+  test('returns a date given a string in the form of yyyy-mm-dd', () => {
+    const dateString = '2016-04-12'
+
+    expect(normalizeDate(dateString)).toEqual(new Date(2016, 3, 12))
   })
 })
