@@ -10,15 +10,21 @@ class Calendar extends React.Component {
   }
 
   _handleClick ({date}) {
-    console.log(date)
+    // console.log(date)
   }
 
   render () {
+    const days = []
+
+    for (let i = 1; i <= 42; i++) {
+      days.push(<Day key={i} date={new Date(2018, 2, i)} clickMethod={this._handleClick} />)
+    }
     return (
       <div>
         <h1>Calendar</h1>
-        <Day date={new Date(2018, 2, 1)} clickMethod={this._handleClick} />
-        <Day date={new Date(2018, 2, 2)} clickMethod={this._handleClick} />
+        {days.map((day) => {
+          return day
+        })}
       </div>
     )
   }

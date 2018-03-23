@@ -25,6 +25,12 @@ describe('<Calendar /> appearance', () => {
 })
 
 describe('<Calendar /> functionality', () => {
+  test('has 42 instances of Day', () => {
+    const calendar = mount(<Calendar />)
+
+    expect(calendar.find(Day).length).toBe(42)
+  })
+
   test('calls the clickMethod when a Day is clicked', () => {
     sinon.spy(Calendar.prototype, '_handleClick')
     const calendar = mount(
@@ -33,7 +39,25 @@ describe('<Calendar /> functionality', () => {
 
     calendar.find(Day).first().simulate('click')
 
-    expect(Calendar.prototype._handleClick.calledOnce).toBe(true)
+    expect(Calendar.prototype._handleClick.callCount).toBe(1)
     Calendar.prototype._handleClick.restore()
   })
+
+  test('all instances of Day are clickable', () => {
+    sinon.spy(Calendar.prototype, '_handleClick')
+    const calendar = mount(
+      <Calendar />
+    )
+
+    calendar.find(Day).forEach((day) => {
+      day.simulate('click')
+    })
+
+    expect(Calendar.prototype._handleClick.callCount).toBe(42)
+    Calendar.prototype._handleClick.restore()
+  })
+
+  test('loads correct dates when passed a selected date')
+  test('loads the next month when next is clicked')
+  test('loads the previous month when previous is clicked')
 })
