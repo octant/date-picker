@@ -1,12 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const WithControl = (ControlledComponent) => {
   return class extends React.Component {
-    static propTypes = {
-      clickMethod: PropTypes.func.isRequired
-    }
-  
     constructor (props) {
       super(props)
 
