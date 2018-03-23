@@ -8,7 +8,9 @@ import {
   normalizeDate,
   toDateString
 } from '../lib/calendar-fns'
+import {Container} from './styles'
 import Day from './day'
+import Month from './month'
 
 class Calendar extends React.Component {
   constructor (props) {
@@ -61,15 +63,17 @@ class Calendar extends React.Component {
     })
 
     return (
-      <div>
+      <Container>
         <h1>Calendar</h1>
         <div>
           <button onClick={this._handlePrevClick}> {'<'} </button> <button onClick={this._handleNextClick}> {'>'} </button>
         </div>
-        {days.map((day) => {
-          return day
-        })}
-      </div>
+        <Month>
+          {days.map((day) => {
+            return day
+          })}
+        </Month>
+      </Container>
     )
   }
 }
