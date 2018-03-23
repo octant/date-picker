@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Calendar /> displays the same 1`] = `
+exports[`<Calendar /> appearance displays the same 1`] = `
 .css-0,
 [data-css-0] {
   position: relative;
@@ -27,7 +27,13 @@ exports[`<Calendar /> displays the same 1`] = `
     className="css-0"
     onClick={[Function]}
   >
-    23
+    1
+  </div>
+  <div
+    className="css-0"
+    onClick={[Function]}
+  >
+    2
   </div>
 </div>
 `;

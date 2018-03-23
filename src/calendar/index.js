@@ -17,7 +17,8 @@ class Calendar extends React.Component {
     return (
       <div>
         <h1>Calendar</h1>
-        <Day date={new Date()} clickMethod={this._handleClick} />
+        <Day date={new Date(2018, 2, 1)} clickMethod={this._handleClick} />
+        <Day date={new Date(2018, 2, 2)} clickMethod={this._handleClick} />
       </div>
     )
   }
