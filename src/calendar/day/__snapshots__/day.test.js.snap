@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Day renders the same 1`] = `
+exports[`<Day /> renders the same each time 1`] = `
 .css-0,
 [data-css-0] {
   position: relative;
@@ -19,6 +19,7 @@ exports[`Day renders the same 1`] = `
 
 <div
   className="css-0"
+  onClick={[Function]}
 >
   23
 </div>

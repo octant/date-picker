@@ -10,17 +10,30 @@ import Adaptor from 'enzyme-adapter-react-16'
 Enzyme.configure({adapter: new Adaptor()})
 expect.addSnapshotSerializer(serializer)
 
-test('Day renders the same', () => {
-  const component = renderer.create(
-    <Day date={new Date()} />
-  )
+describe('<Day />', () => {
+  test('renders the same each time', () => {
+    const component = renderer.create(
+      <Day date={new Date(2018, 2, 23)} />
+    )
 
-  let tree = component.toJSON()
-  expect(tree).toMatchSnapshot()
-})
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 
-test('Day displays proper date', () => {
-  const day = mount(<Day date={new Date(2018, 2, 2)} />)
+  test('displays proper date', () => {
+    const day = mount(<Day date={new Date(2018, 2, 2)} />)
+    expect(day.text()).toEqual('2')
+  })
 
-  expect(day.text()).toEqual('2')
+  test('calls the clickMethod when clicked', () => {
+    const clickMethod = jest.fn()
+    const day = mount(
+      <Day
+        date={new Date(2018, 2, 2)}
+        clickMethod={clickMethod} />
+    )
+    day.simulate('click')
+
+    expect(clickMethod.mock.calls.length).toBe(1)
+  })
 })

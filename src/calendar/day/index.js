@@ -6,16 +6,16 @@ class Wrapper extends React.Component {
   constructor (props) {
     super(props)
 
-    this._onMouseEnter = this._onMouseEnter.bind(this)
+    this._handleClick = this._handleClick.bind(this)
   }
 
-  _onMouseEnter () {
-    console.log('mouse entered')
+  _handleClick () {
+    this.props.clickMethod({...this.props})
   }
 
   render () {
     return (
-      <Day>{this.props.date.getDate()}</Day>
+      <Day onClick={this._handleClick}>{this.props.date.getDate()}</Day>
     )
   }
 }

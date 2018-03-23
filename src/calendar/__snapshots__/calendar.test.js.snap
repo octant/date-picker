@@ -1,12 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Calendar displays the same 1`] = `
+exports[`<Calendar /> displays the same 1`] = `
+.css-0,
+[data-css-0] {
+  position: relative;
+  height: 2.5em;
+  width: 2.5em;
+  margin: 0.125em;
+  line-height: 2.5em;
+  text-align: center;
+  background-color: orangered;
+}
+
+.css-0:hover,
+[data-css-0]:hover {
+  background-color: darkblue;
+}
+
 <div>
   <h1>
     Calendar
   </h1>
   <div
-    className="css-1ql45z"
+    className="css-0"
+    onClick={[Function]}
   >
     23
   </div>
