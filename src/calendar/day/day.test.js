@@ -36,4 +36,12 @@ describe('<Day />', () => {
 
     expect(clickMethod.mock.calls.length).toBe(1)
   })
+
+  test('calls the clickMethod when clicked', () => {
+    const day = mount(
+      <Day date={new Date(2018, 2, 2)} />
+    )
+
+    expect(day.state().id).toEqual('2018-03-02')
+  })
 })
