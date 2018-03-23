@@ -6,7 +6,8 @@ exports[`<Day /> appearance renders the same each time 1`] = `
   position: relative;
   height: 2.5em;
   width: 2.5em;
-  margin: 0.125em;
+  float: left;
+  margin: 0em;
   line-height: 2.5em;
   text-align: center;
   background-color: orangered;
