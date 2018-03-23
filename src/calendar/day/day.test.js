@@ -3,9 +3,9 @@
 import React from 'react'
 import Day from './'
 import renderer from 'react-test-renderer'
+import serializer from 'jest-glamor-react'
 import Enzyme, {mount} from 'enzyme'
 import Adaptor from 'enzyme-adapter-react-16'
-import serializer from 'jest-glamor-react'
 
 Enzyme.configure({adapter: new Adaptor()})
 expect.addSnapshotSerializer(serializer)
