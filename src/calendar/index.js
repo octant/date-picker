@@ -3,6 +3,8 @@ import React from 'react'
 import {
   buildCalendar,
   getCurrentMonth,
+  getNextMonth,
+  getPreviousMonth,
   normalizeDate,
   toDateString
 } from '../lib/calendar-fns'
@@ -22,11 +24,31 @@ class Calendar extends React.Component {
     }
 
     this._handleClick = this._handleClick.bind(this)
+    this._handleNextClick = this._handleNextClick.bind(this)
+    this._handlePrevClick = this._handlePrevClick.bind(this)
   }
 
   _handleClick ({date}) {
     this.setState({
       selected: `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`
+    })
+  }
+
+  _handleNextClick () {
+    const {currentDate} = this.state
+    const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate())
+    this.setState({
+      currentDate: newDate,
+      calendar: buildCalendar(getNextMonth(currentDate))
+    })
+  }
+
+  _handlePrevClick () {
+    const {currentDate} = this.state
+    const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate())
+    this.setState({
+      currentDate: newDate,
+      calendar: buildCalendar(getPreviousMonth(currentDate))
     })
   }
 
@@ -41,6 +63,9 @@ class Calendar extends React.Component {
     return (
       <div>
         <h1>Calendar</h1>
+        <div>
+          <button onClick={this._handlePrevClick}> {'<'} </button> <button onClick={this._handleNextClick}> {'>'} </button>
+        </div>
         {days.map((day) => {
           return day
         })}

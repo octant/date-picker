@@ -48,6 +48,24 @@ describe('<Calendar /> functionality', () => {
     expect(calendar.find({id: dateString}).length).toBe(1)
   })
 
+  test('loads the next month when next is clicked', () => {
+    const calendar = mount(<Calendar selected='2018-03-22' />)
+
+    calendar.find('button').last().simulate('click')
+    calendar.find('button').last().simulate('click')
+
+    expect(calendar.state().calendar[0].getDate()).toEqual(29)
+  })
+
+  test('loads the previous month when previous is clicked', () => {
+    const calendar = mount(<Calendar selected='2018-05-22' />)
+
+    calendar.find('button').first().simulate('click')
+    calendar.find('button').first().simulate('click')
+
+    expect(calendar.state().calendar[0].getDate()).toEqual(25)
+  })
+
   test('the selected day is set when a Day is clicked', () => {
     const date = new Date()
     const dateString = `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`
@@ -91,7 +109,4 @@ describe('<Calendar /> functionality', () => {
     expect(Calendar.prototype._handleClick.callCount).toBe(42)
     Calendar.prototype._handleClick.restore()
   })
-
-  test('loads the next month when next is clicked')
-  test('loads the previous month when previous is clicked')
 })
