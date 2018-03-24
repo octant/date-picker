@@ -5,6 +5,7 @@ exports[`<Calendar /> appearance displays the same 1`] = `
 [data-css-0] {
   position: absolute;
   background-color: cyan;
+  padding: 0.5em;
 }
 
 .css-1,
