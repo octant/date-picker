@@ -40,28 +40,28 @@ exports[`<Calendar /> appearance displays the same 1`] = `
   className="css-0"
 >
   <h1>
-    Calendar
+    2019-06-04
   </h1>
-  <div>
-    <button
-      onClick={[Function]}
-    >
-       
-      &lt;
-       
-    </button>
-     
-    <button
-      onClick={[Function]}
-    >
-       
-      &gt;
-       
-    </button>
-  </div>
   <div
     className="css-1"
   >
+    <div>
+      <button
+        onClick={[Function]}
+      >
+         
+        &lt;
+         
+      </button>
+       
+      <button
+        onClick={[Function]}
+      >
+         
+        &gt;
+         
+      </button>
+    </div>
     <div
       className="css-2"
       onClick={[Function]}

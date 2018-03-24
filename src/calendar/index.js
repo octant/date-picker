@@ -64,11 +64,11 @@ class Calendar extends React.Component {
 
     return (
       <Container>
-        <h1>Calendar</h1>
-        <div>
-          <button onClick={this._handlePrevClick}> {'<'} </button> <button onClick={this._handleNextClick}> {'>'} </button>
-        </div>
+        <h1>{this.state.selected}</h1>
         <Month>
+          <div>
+            <button onClick={this._handlePrevClick}> {'<'} </button> <button onClick={this._handleNextClick}> {'>'} </button>
+          </div>
           {days.map((day) => {
             return day
           })}
