@@ -11,7 +11,6 @@ import {
 import {Container} from './styles'
 import Day from './day'
 import Month from './month'
-// import {Grid} from './grid/styles'
 import Grid from './grid'
 import Item from './item'
 
