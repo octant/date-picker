@@ -11,6 +11,9 @@ import {
 import {Container} from './styles'
 import Day from './day'
 import Month from './month'
+// import {Grid} from './grid/styles'
+import Grid from './grid'
+import Item from './item'
 
 class Calendar extends React.Component {
   constructor (props) {
@@ -59,7 +62,7 @@ class Calendar extends React.Component {
 
     this.state.calendar.forEach((day, i) => {
       const dateString = toDateString(day)
-      days.push(<Day key={i} id={dateString} date={day} clickMethod={this._handleClick} />)
+      days.push(<Item key={i} id={dateString} label={day.getDate()} date={day} clickMethod={this._handleClick} />)
     })
 
     return (
@@ -69,9 +72,7 @@ class Calendar extends React.Component {
           <div>
             <button onClick={this._handlePrevClick}> {'<'} </button> <button onClick={this._handleNextClick}> {'>'} </button>
           </div>
-          {days.map((day) => {
-            return day
-          })}
+          <Grid items={days} component={Day} itemWidth={2.5} itemsWide={7} widthUnit={'em'} />
         </Month>
       </Container>
     )

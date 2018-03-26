@@ -6,7 +6,6 @@ exports[`<Month /> appearance displays the same 1`] = `
   position: relative;
   overflow: hidden;
   padding: 0.5em;
-  width: 17.5em;
   background-color: silver;
 }
 
