@@ -37,10 +37,12 @@ export const weekdays = (offset = 0) => {
   return [...week.slice(offset), ...week.slice(0, offset)]
 }
 
-export const normalizeDate = (dateString) => {
-  const dateArray = dateString.split('-').map((i) => (parseInt(i, 10)))
+const convertDate = (y, m = 1, d = 1) => {
+  return new Date(y, m - 1, d)
+}
 
-  return new Date(dateArray[0], dateArray[1] - 1, dateArray[2])
+export const normalizeDate = (dateString) => {
+  return convertDate(...dateString.split('-'))
 }
 
 export const toDateString = (date) => {
