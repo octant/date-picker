@@ -6,7 +6,7 @@ class Grid extends React.Component {
   render () {
     return <StyledGrid itemWidth={this.props.itemWidth} itemsWide={this.props.itemsWide} widthUnit={this.props.widthUnit}>
       {this.props.items.map((item, i) => {
-        return item
+        return React.cloneElement(item, {key: i})
       })}
     </StyledGrid>
   }

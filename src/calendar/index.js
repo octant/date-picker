@@ -61,12 +61,12 @@ class Calendar extends React.Component {
     const days = []
 
     weekdays().forEach((weekday, i) => {
-      weekDays.push(<Item key={i} label={weekday} />)
+      weekDays.push(<Item label={weekday} />)
     })
 
     this.state.calendar.forEach((day, i) => {
       const dateString = toDateString(day)
-      days.push(<Item key={i} id={dateString} label={day.getDate()} date={day} clickMethod={this._handleClick} />)
+      days.push(<Item id={dateString} label={day.getDate()} date={day} clickMethod={this._handleClick} />)
     })
 
     return (

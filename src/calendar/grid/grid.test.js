@@ -9,7 +9,7 @@ Enzyme.configure({adapter: new Adaptor()})
 
 describe('<Grid /> functionality', () => {
   test('displays all items passed to it', () => {
-    const items = [<input key={1} />, <input key={2} />]
+    const items = [<input />, <input />]
 
     const grid = mount(<Grid items={items} />)
 
