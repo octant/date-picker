@@ -5,9 +5,11 @@ import Item from '../item'
 
 import {
   buildCalendar,
-  toDateString,
   weekdays
 } from '../../lib/calendar-fns'
+import {
+  format
+} from '../../lib/date-fns'
 
 class Month extends React.Component {
   items () {
@@ -18,8 +20,8 @@ class Month extends React.Component {
     })
 
     buildCalendar(this.props.startDate).forEach((date) => {
-      const dateString = toDateString(date)
-      const currentDate = this.context.currentDate || toDateString(new Date())
+      const dateString = format(date, 'YYYY-MM-DD')
+      const currentDate = this.context.currentDate || format(new Date(), 'YYYY-MM-DD')
       days.push(
         <Item
           id={dateString}

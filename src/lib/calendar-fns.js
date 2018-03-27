@@ -45,10 +45,6 @@ export const normalizeDate = (dateString) => {
   return convertDate(...dateString.split('-'))
 }
 
-export const toDateString = (date) => {
-  return `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`
-}
-
 export const getPreviousMonth = (date, offset = 0) => {
   return previous(date.getFullYear(), date.getMonth(), offset)
 }

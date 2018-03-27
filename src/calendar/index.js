@@ -5,9 +5,11 @@ import {
   getCurrentMonth,
   getNextMonth,
   getPreviousMonth,
-  normalizeDate,
-  toDateString
+  normalizeDate
 } from '../lib/calendar-fns'
+import {
+  format
+} from '../lib/date-fns'
 import {Container} from './styles'
 import TimeContainer from './time-container'
 import Month from './month'
@@ -16,7 +18,7 @@ class Calendar extends React.Component {
   constructor (props) {
     super(props)
 
-    const selected = props.selected || toDateString(new Date())
+    const selected = props.selected || format(new Date(), 'YYYY-MM-DD')
     const currentDate = normalizeDate(selected)
 
     this.state = {
@@ -33,13 +35,13 @@ class Calendar extends React.Component {
   getChildContext () {
     return {
       selected: this.state.selected,
-      currentDate: toDateString(this.state.currentDate)
+      currentDate: format(this.state.currentDate, 'YYYY-MM-DD')
     }
   }
 
   _handleClick ({date}) {
     this.setState({
-      selected: toDateString(date)
+      selected: format(date, 'YYYY-MM-DD')
     })
   }
 
