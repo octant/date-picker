@@ -18,6 +18,7 @@ exports[`<Month /> appearance displays the same 1`] = `
   line-height: 2.5em;
   text-align: center;
   background-color: orangered;
+  color: white;
 }
 
 <div

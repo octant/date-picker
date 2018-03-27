@@ -12,6 +12,7 @@ exports[`<Item /> appearance renders the same each time 1`] = `
   line-height: 2.5em;
   text-align: center;
   background-color: orangered;
+  color: white;
 }
 
 <div

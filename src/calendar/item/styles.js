@@ -16,8 +16,8 @@ export const StyledItem = glamorous.div({
 
   if (selected) {
     style.lineHeight = `calc(2.5em - 2px)`
-    style.border = `1px #000 solid`
-    style.color = `orangered`
+    style.border = `1px #0A64A4 solid`
+    style.color = `0A64A4`
     style.backgroundColor = 'white'
   }
 
@@ -27,7 +27,7 @@ export const StyledItem = glamorous.div({
       border: `1px #FFF solid`,
       cursor: `pointer`,
       color: `white`,
-      backgroundColor: `oragered`
+      backgroundColor: `#0A64A4`
     }
   }
 
