@@ -10,7 +10,6 @@ import {
   weekdays
 } from '../lib/calendar-fns'
 import {Container} from './styles'
-import Day from './day'
 import Month from './month'
 import Grid from './grid'
 import Item from './item'
@@ -74,7 +73,7 @@ class Calendar extends React.Component {
           <div>
             <button onClick={this._handlePrevClick}> {'<'} </button> <button onClick={this._handleNextClick}> {'>'} </button>
           </div>
-          <Grid items={days} component={Day} itemWidth={2.5} widthUnit={'em'} itemsWide={7} />
+          <Grid items={days} itemWidth={2.5} widthUnit={'em'} itemsWide={7} />
         </Month>
       </Container>
     )
