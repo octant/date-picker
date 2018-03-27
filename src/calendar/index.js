@@ -31,7 +31,7 @@ class Calendar extends React.Component {
 
   _handleClick ({date}) {
     this.setState({
-      selected: `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`
+      selected: toDateString(date)
     })
   }
 
