@@ -3,7 +3,6 @@
 import {
   getPreviousMonth,
   getNextMonth,
-  normalizeDate,
   weekdays
 } from './calendar-fns'
 
@@ -58,14 +57,6 @@ describe('Next month function', () => {
 
     expect(firstDay.getDate()).toBe(30)
     expect(firstDay.getMonth()).toBe(3)
-  })
-})
-
-describe('normalizeDate', () => {
-  test('returns a date given a string in the form of yyyy-mm-dd', () => {
-    const dateString = '2016-04-12'
-
-    expect(normalizeDate(dateString)).toEqual(new Date(2016, 3, 12))
   })
 })
 

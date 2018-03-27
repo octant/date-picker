@@ -37,14 +37,6 @@ export const weekdays = (offset = 0) => {
   return [...week.slice(offset), ...week.slice(0, offset)]
 }
 
-const convertDate = (y, m = 1, d = 1) => {
-  return new Date(y, m - 1, d)
-}
-
-export const normalizeDate = (dateString) => {
-  return convertDate(...dateString.split('-'))
-}
-
 export const getPreviousMonth = (date, offset = 0) => {
   return previous(date.getFullYear(), date.getMonth(), offset)
 }

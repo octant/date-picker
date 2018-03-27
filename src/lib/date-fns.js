@@ -12,3 +12,11 @@ export const format = (date, formatString) => {
 
   return replaceYear(replaceMonth(replaceDay(formatString)))
 }
+
+export const partialToFullDate = (y, m = 1, d = 1) => {
+  return new Date(y, m - 1, d)
+}
+
+export const stringToDate = (dateString) => {
+  return partialToFullDate(...dateString.split('-'))
+}

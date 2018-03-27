@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 import {
   getCurrentMonth,
   getNextMonth,
-  getPreviousMonth,
-  normalizeDate
+  getPreviousMonth
 } from '../lib/calendar-fns'
 import {
-  format
+  format,
+  stringToDate
 } from '../lib/date-fns'
 import {Container} from './styles'
 import TimeContainer from './time-container'
@@ -19,7 +19,7 @@ class Calendar extends React.Component {
     super(props)
 
     const selected = props.selected || format(new Date(), 'YYYY-MM-DD')
-    const currentDate = normalizeDate(selected)
+    const currentDate = stringToDate(selected)
 
     this.state = {
       currentDate: currentDate,

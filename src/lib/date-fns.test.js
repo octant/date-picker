@@ -2,7 +2,9 @@
 
 import {
   format,
-  replace
+  partialToFullDate,
+  replace,
+  stringToDate
 } from './date-fns'
 
 describe('replace', () => {
@@ -39,5 +41,39 @@ describe('format', () => {
     expect(format(date, 'YYYY')).toEqual('2018')
     expect(format(date, 'YYYY-MM')).toEqual('2018-03')
     expect(format(date, 'M/D/YY')).toEqual('3/9/18')
+  })
+})
+
+describe('partialToFullDate', () => {
+  test('returns a full date given only a year', () => {
+    expect(partialToFullDate(2016)).toEqual(new Date(2016, 0, 1))
+  })
+
+  test('returns a full date given only a year and month', () => {
+    expect(partialToFullDate(2018, 12)).toEqual(new Date(2018, 11, 1))
+  })
+
+  test('returns a full date if year, month and day are provided', () => {
+    expect(partialToFullDate(2018, 1, 31)).toEqual(new Date(2018, 0, 31))
+  })
+})
+
+describe('stringToDate', () => {
+  test('returns a date given a string in the form of yyyy-mm-dd', () => {
+    const dateString = '2016-04-12'
+
+    expect(stringToDate(dateString)).toEqual(new Date(2016, 3, 12))
+  })
+
+  test('returns a date given a string in the form of yyyy-mm', () => {
+    const dateString = '2016-04'
+
+    expect(stringToDate(dateString)).toEqual(new Date(2016, 3, 1))
+  })
+
+  test('returns a date given a string in the form of yyyy', () => {
+    const dateString = '2020'
+
+    expect(stringToDate(dateString)).toEqual(new Date(2020, 0, 1))
   })
 })
