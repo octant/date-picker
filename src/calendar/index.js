@@ -71,7 +71,7 @@ class Calendar extends React.Component {
           <div>
             <button onClick={this._handlePrevClick}> {'<'} </button> <button onClick={this._handleNextClick}> {'>'} </button>
           </div>
-          <Grid items={days} component={Day} itemWidth={2.5} itemsWide={7} widthUnit={'em'} />
+          <Grid items={days} component={Day} itemWidth={2.5} widthUnit={'em'} itemsWide={7} />
         </Month>
       </Container>
     )
