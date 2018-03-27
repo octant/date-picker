@@ -25,7 +25,7 @@ describe('<Month /> appearance', () => {
 
 describe('<Month /> functionality', () => {
   test('displays a Grid', () => {
-    const month = mount(<Month startDate={new Date(2018, 2, 25)} />)
+    const month = mount(<Month startDate={new Date(2018, 1, 25)} />)
 
     expect(month.find('Grid').length).toBe(1)
   })
@@ -33,22 +33,27 @@ describe('<Month /> functionality', () => {
   test('displays correct dates', () => {
     const month = mount(<Month startDate={new Date(2018, 3, 1)} />)
 
+    expect(month.find('Item').first().text()).toBe('Su')
     expect(month.find('Item').last().text()).toBe('12')
+    expect(month.find('Item').length).toBe(49)
   })
 
-  test('sets an "id" property on each item')
+  test('sets an "id" property on each item', () => {
+    const month = mount(<Month startDate={new Date(2018, 1, 25)} />)
 
-  test('defaults to current month if a "selected" prop is not passed')
+    expect(month.find({id: '2018-03-22'}).length).toBe(1)
+  })
 
-  test('loads the next month when next is clicked')
+  test('all instances of  day Items are clickable', () => {
+    const clickMethod = sinon.spy()
+    const month = mount(
+      <Month clickMethod={clickMethod} startDate={new Date(2018, 2, 25)} />
+    )
 
-  test('loads the previous month when previous is clicked')
+    month.find('Item').forEach((item) => {
+      item.simulate('click')
+    })
 
-  test('the selected item is set when a Item is clicked')
-
-  test('has 42 instances of Item')
-
-  test('calls the clickMethod when a Item is clicked')
-
-  test('all instances of Item are clickable')
+    expect(clickMethod.callCount).toBe(42)
+  })
 })

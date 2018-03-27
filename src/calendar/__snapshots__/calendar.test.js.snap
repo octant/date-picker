@@ -124,10 +124,6 @@ exports[`<Calendar /> appearance displays the same 1`] = `
       >
         Sa
       </div>
-    </div>
-    <div
-      className="css-2"
-    >
       <div
         className="css-4"
         onClick={[Function]}

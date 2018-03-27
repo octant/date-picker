@@ -6,13 +6,11 @@ import {
   getNextMonth,
   getPreviousMonth,
   normalizeDate,
-  toDateString,
-  weekdays
+  toDateString
 } from '../lib/calendar-fns'
 import {Container} from './styles'
 import TimeContainer from './time-container'
-import Grid from './grid'
-import Item from './item'
+import Month from './month'
 
 class Calendar extends React.Component {
   constructor (props) {
@@ -24,6 +22,7 @@ class Calendar extends React.Component {
     this.state = {
       currentDate: currentDate,
       calendar: buildCalendar(getCurrentMonth(currentDate)),
+      startDate: getCurrentMonth(currentDate),
       selected: props.selected || ''
     }
 
@@ -43,6 +42,7 @@ class Calendar extends React.Component {
     const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate())
     this.setState({
       currentDate: newDate,
+      startDate: getNextMonth(currentDate),
       calendar: buildCalendar(getNextMonth(currentDate))
     })
   }
@@ -52,23 +52,12 @@ class Calendar extends React.Component {
     const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate())
     this.setState({
       currentDate: newDate,
+      startDate: getPreviousMonth(currentDate),
       calendar: buildCalendar(getPreviousMonth(currentDate))
     })
   }
 
   render () {
-    const weekDays = []
-    const days = []
-
-    weekdays().forEach((weekday, i) => {
-      weekDays.push(<Item label={weekday} />)
-    })
-
-    this.state.calendar.forEach((day, i) => {
-      const dateString = toDateString(day)
-      days.push(<Item id={dateString} label={day.getDate()} date={day} clickMethod={this._handleClick} />)
-    })
-
     return (
       <Container>
         <h1>{this.state.selected}</h1>
@@ -76,8 +65,7 @@ class Calendar extends React.Component {
           <div>
             <button onClick={this._handlePrevClick}> {'<'} </button> <button onClick={this._handleNextClick}> {'>'} </button>
           </div>
-          <Grid items={weekDays} itemWidth={2.5} widthUnit={'em'} itemsWide={7} />
-          <Grid items={days} itemWidth={2.5} widthUnit={'em'} itemsWide={7} />
+          <Month startDate={this.state.startDate} clickMethod={this._handleClick} />
         </TimeContainer>
       </Container>
     )

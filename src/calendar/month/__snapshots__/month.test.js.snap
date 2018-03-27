@@ -4,7 +4,7 @@ exports[`<Month /> appearance displays the same 1`] = `
 .css-0,
 [data-css-0] {
   position: relative;
-  width: NaNundefined;
+  width: 17.5em;
 }
 
 .css-1,
@@ -22,6 +22,48 @@ exports[`<Month /> appearance displays the same 1`] = `
 <div
   className="css-0"
 >
+  <div
+    className="css-1"
+    onClick={[Function]}
+  >
+    Su
+  </div>
+  <div
+    className="css-1"
+    onClick={[Function]}
+  >
+    Mo
+  </div>
+  <div
+    className="css-1"
+    onClick={[Function]}
+  >
+    Tu
+  </div>
+  <div
+    className="css-1"
+    onClick={[Function]}
+  >
+    We
+  </div>
+  <div
+    className="css-1"
+    onClick={[Function]}
+  >
+    Th
+  </div>
+  <div
+    className="css-1"
+    onClick={[Function]}
+  >
+    Fr
+  </div>
+  <div
+    className="css-1"
+    onClick={[Function]}
+  >
+    Sa
+  </div>
   <div
     className="css-1"
     onClick={[Function]}
