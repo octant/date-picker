@@ -80,7 +80,7 @@ describe('<Calendar /> functionality', () => {
   test('has 42 instances of Item', () => {
     const calendar = mount(<Calendar />)
 
-    expect(calendar.find('Item').length).toBe(42)
+    expect(calendar.find({clickable: true}).length).toBe(42)
   })
 
   test('calls the clickMethod when a Item is clicked', () => {
@@ -89,7 +89,7 @@ describe('<Calendar /> functionality', () => {
       <Calendar />
     )
 
-    calendar.find('Item').first().simulate('click')
+    calendar.find('Item').last().simulate('click')
 
     expect(Calendar.prototype._handleClick.callCount).toBe(1)
     Calendar.prototype._handleClick.restore()

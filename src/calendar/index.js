@@ -6,7 +6,8 @@ import {
   getNextMonth,
   getPreviousMonth,
   normalizeDate,
-  toDateString
+  toDateString,
+  weekdays
 } from '../lib/calendar-fns'
 import {Container} from './styles'
 import Day from './day'
@@ -58,10 +59,12 @@ class Calendar extends React.Component {
 
   render () {
     const days = []
-
+    weekdays().forEach((weekday, i) => {
+      days.push(<Item key={i} label={weekday} />)
+    })
     this.state.calendar.forEach((day, i) => {
       const dateString = toDateString(day)
-      days.push(<Item key={i} id={dateString} label={day.getDate()} date={day} clickMethod={this._handleClick} />)
+      days.push(<Item key={i + 7} id={dateString} label={day.getDate()} date={day} clickMethod={this._handleClick} />)
     })
 
     return (
