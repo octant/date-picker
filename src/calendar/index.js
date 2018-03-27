@@ -57,13 +57,15 @@ class Calendar extends React.Component {
   }
 
   render () {
+    const weekDays = []
     const days = []
     weekdays().forEach((weekday, i) => {
-      days.push(<Item key={i} label={weekday} />)
+      weekDays.push(<Item key={i} label={weekday} />)
     })
+
     this.state.calendar.forEach((day, i) => {
       const dateString = toDateString(day)
-      days.push(<Item key={i + 7} id={dateString} label={day.getDate()} date={day} clickMethod={this._handleClick} />)
+      days.push(<Item key={i} id={dateString} label={day.getDate()} date={day} clickMethod={this._handleClick} />)
     })
 
     return (
@@ -73,6 +75,7 @@ class Calendar extends React.Component {
           <div>
             <button onClick={this._handlePrevClick}> {'<'} </button> <button onClick={this._handleNextClick}> {'>'} </button>
           </div>
+          <Grid items={weekDays} itemWidth={2.5} widthUnit={'em'} itemsWide={7} />
           <Grid items={days} itemWidth={2.5} widthUnit={'em'} itemsWide={7} />
         </Month>
       </Container>
