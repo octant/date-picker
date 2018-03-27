@@ -18,7 +18,14 @@ class Month extends React.Component {
     })
 
     buildCalendar(this.props.startDate).forEach((date) => {
-      days.push(<Item id={toDateString(date)} clickMethod={this.props.clickMethod} date={date} label={date.getDate()} />)
+      days.push(
+        <Item
+          id={toDateString(date)}
+          clickMethod={this.props.clickMethod}
+          date={date}
+          selected={this.context.selected === toDateString(date)}
+          label={date.getDate()} />
+      )
     })
 
     return days
@@ -34,6 +41,10 @@ class Month extends React.Component {
 Month.propTypes = {
   startDate: PropTypes.instanceOf(Date).isRequired,
   clickMethod: PropTypes.func
+}
+
+Month.contextTypes = {
+  selected: PropTypes.string
 }
 
 export default Month

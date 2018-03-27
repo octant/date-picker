@@ -19,7 +19,8 @@ class Item extends React.Component {
     return (
       <StyledItem
         clickable={this.props.clickMethod !== undefined}
-        onClick={this._handleClick}>
+        onClick={this._handleClick}
+        selected={this.props.selected}>
         {this.props.label}
       </StyledItem>
     )

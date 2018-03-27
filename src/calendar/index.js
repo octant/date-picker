@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import {
   getCurrentMonth,
@@ -27,6 +28,12 @@ class Calendar extends React.Component {
     this._handleClick = this._handleClick.bind(this)
     this._handleNextClick = this._handleNextClick.bind(this)
     this._handlePrevClick = this._handlePrevClick.bind(this)
+  }
+
+  getChildContext () {
+    return {
+      selected: this.state.selected
+    }
   }
 
   _handleClick ({date}) {
@@ -66,6 +73,10 @@ class Calendar extends React.Component {
       </Container>
     )
   }
+}
+
+Calendar.childContextTypes = {
+  selected: PropTypes.string
 }
 
 export default Calendar

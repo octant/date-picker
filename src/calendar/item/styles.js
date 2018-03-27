@@ -9,8 +9,12 @@ export const StyledItem = glamorous.div({
   lineHeight: `2.5em`,
   textAlign: `center`,
   backgroundColor: 'orangered'
-}, ({clickable}) => {
+}, ({clickable, selected}) => {
   const style = {}
+
+  if (selected) {
+    style.backgroundColor = 'white'
+  }
 
   if (clickable) {
     style[':hover'] = {
@@ -19,5 +23,6 @@ export const StyledItem = glamorous.div({
       backgroundColor: 'darkblue'
     }
   }
+
   return style
 })

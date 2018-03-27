@@ -53,6 +53,25 @@ exports[`<Calendar /> appearance displays the same 1`] = `
   background-color: darkblue;
 }
 
+.css-6,
+[data-css-6] {
+  position: relative;
+  height: 2.5em;
+  width: 2.5em;
+  float: left;
+  margin: 0em;
+  line-height: 2.5em;
+  text-align: center;
+  background-color: white;
+}
+
+.css-6:hover,
+[data-css-6]:hover {
+  cursor: pointer;
+  color: white;
+  background-color: darkblue;
+}
+
 <div
   className="css-0"
 >
@@ -179,7 +198,7 @@ exports[`<Calendar /> appearance displays the same 1`] = `
         3
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         4
