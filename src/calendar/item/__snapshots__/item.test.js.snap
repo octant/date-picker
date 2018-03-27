@@ -13,13 +13,6 @@ exports[`<Item /> appearance renders the same each time 1`] = `
   background-color: orangered;
 }
 
-.css-0:hover,
-[data-css-0]:hover {
-  cursor: pointer;
-  color: white;
-  background-color: darkblue;
-}
-
 <div
   className="css-0"
   onClick={[Function]}

@@ -10,11 +10,19 @@ class Item extends React.Component {
   }
 
   _handleClick () {
-    this.props.clickMethod({...this.props})
+    if (this.props.clickMethod) {
+      this.props.clickMethod({...this.props})
+    }
   }
 
   render () {
-    return <StyledItem onClick={this._handleClick}>{this.props.label}</StyledItem>
+    return (
+      <StyledItem
+        clickable={this.props.clickMethod !== undefined}
+        onClick={this._handleClick}>
+        {this.props.label}
+      </StyledItem>
+    )
   }
 }
 

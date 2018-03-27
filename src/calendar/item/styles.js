@@ -8,12 +8,16 @@ export const StyledItem = glamorous.div({
   margin: `0em`,
   lineHeight: `2.5em`,
   textAlign: `center`,
-  backgroundColor: 'orangered',
-  ':hover': {
-    cursor: 'pointer',
-    color: 'white',
-    backgroundColor: 'darkblue'
+  backgroundColor: 'orangered'
+}, ({clickable}) => {
+  const style = {}
+
+  if (clickable) {
+    style[':hover'] = {
+      cursor: 'pointer',
+      color: 'white',
+      backgroundColor: 'darkblue'
+    }
   }
-}, ({style}) => {
   return style
 })
