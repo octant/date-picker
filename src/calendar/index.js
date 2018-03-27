@@ -1,7 +1,6 @@
 import React from 'react'
 
 import {
-  buildCalendar,
   getCurrentMonth,
   getNextMonth,
   getPreviousMonth,
@@ -21,7 +20,6 @@ class Calendar extends React.Component {
 
     this.state = {
       currentDate: currentDate,
-      calendar: buildCalendar(getCurrentMonth(currentDate)),
       startDate: getCurrentMonth(currentDate),
       selected: props.selected || ''
     }
@@ -42,8 +40,7 @@ class Calendar extends React.Component {
     const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate())
     this.setState({
       currentDate: newDate,
-      startDate: getNextMonth(currentDate),
-      calendar: buildCalendar(getNextMonth(currentDate))
+      startDate: getNextMonth(currentDate)
     })
   }
 
@@ -52,8 +49,7 @@ class Calendar extends React.Component {
     const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, currentDate.getDate())
     this.setState({
       currentDate: newDate,
-      startDate: getPreviousMonth(currentDate),
-      calendar: buildCalendar(getPreviousMonth(currentDate))
+      startDate: getPreviousMonth(currentDate)
     })
   }
 

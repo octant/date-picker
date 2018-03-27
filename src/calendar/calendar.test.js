@@ -46,7 +46,7 @@ describe('<Calendar /> functionality', () => {
     calendar.find('button').last().simulate('click')
     calendar.find('button').last().simulate('click')
 
-    expect(calendar.state().calendar[0].getDate()).toEqual(29)
+    expect(calendar.find({id: '2018-04-29'}).length).toEqual(1)
   })
 
   test('loads the previous month when previous is clicked', () => {
@@ -55,7 +55,7 @@ describe('<Calendar /> functionality', () => {
     calendar.find('button').first().simulate('click')
     calendar.find('button').first().simulate('click')
 
-    expect(calendar.state().calendar[0].getDate()).toEqual(25)
+    expect(calendar.find({id: '2018-03-25'}).length).toEqual(1)
   })
 
   test('the selected item is set when a Item is clicked', () => {
