@@ -20,6 +20,7 @@ class Item extends React.Component {
       <StyledItem
         clickable={this.props.clickMethod !== undefined}
         onClick={this._handleClick}
+        muted={this.props.muted}
         selected={this.props.selected}>
         {this.props.label}
       </StyledItem>

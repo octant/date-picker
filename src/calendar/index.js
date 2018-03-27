@@ -32,7 +32,8 @@ class Calendar extends React.Component {
 
   getChildContext () {
     return {
-      selected: this.state.selected
+      selected: this.state.selected,
+      currentDate: toDateString(this.state.currentDate)
     }
   }
 
@@ -76,7 +77,8 @@ class Calendar extends React.Component {
 }
 
 Calendar.childContextTypes = {
-  selected: PropTypes.string
+  selected: PropTypes.string,
+  currentDate: PropTypes.string
 }
 
 export default Calendar

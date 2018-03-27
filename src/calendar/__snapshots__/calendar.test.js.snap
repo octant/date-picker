@@ -47,7 +47,7 @@ exports[`<Calendar /> appearance displays the same 1`] = `
   line-height: 2.5em;
   text-align: center;
   background-color: orangered;
-  color: white;
+  color: #BBB;
 }
 
 .css-4:hover,
@@ -67,6 +67,29 @@ exports[`<Calendar /> appearance displays the same 1`] = `
   width: 2.5em;
   float: left;
   margin: 0em;
+  line-height: 2.5em;
+  text-align: center;
+  background-color: orangered;
+  color: white;
+}
+
+.css-6:hover,
+[data-css-6]:hover {
+  line-height: calc(2.5em - 2px);
+  border: 1px #FFF solid;
+  cursor: pointer;
+  color: white;
+  background-color: #0A64A4;
+}
+
+.css-8,
+[data-css-8] {
+  position: relative;
+  box-sizing: border-box;
+  height: 2.5em;
+  width: 2.5em;
+  float: left;
+  margin: 0em;
   line-height: calc(2.5em - 2px);
   text-align: center;
   background-color: white;
@@ -74,8 +97,8 @@ exports[`<Calendar /> appearance displays the same 1`] = `
   border: 1px #0A64A4 solid;
 }
 
-.css-6:hover,
-[data-css-6]:hover {
+.css-8:hover,
+[data-css-8]:hover {
   line-height: calc(2.5em - 2px);
   border: 1px #FFF solid;
   cursor: pointer;
@@ -191,181 +214,181 @@ exports[`<Calendar /> appearance displays the same 1`] = `
         31
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         1
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         2
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         3
       </div>
       <div
-        className="css-6"
+        className="css-8"
         onClick={[Function]}
       >
         4
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         5
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         6
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         7
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         8
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         9
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         10
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         11
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         12
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         13
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         14
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         15
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         16
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         17
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         18
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         19
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         20
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         21
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         22
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         23
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         24
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         25
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         26
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         27
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         28
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         29
       </div>
       <div
-        className="css-4"
+        className="css-6"
         onClick={[Function]}
       >
         30

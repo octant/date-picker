@@ -11,8 +11,12 @@ export const StyledItem = glamorous.div({
   textAlign: `center`,
   backgroundColor: 'orangered',
   color: `white`
-}, ({clickable, selected}) => {
+}, ({clickable, selected, muted}) => {
   const style = {}
+
+  if (muted) {
+    style.color = `#BBB`
+  }
 
   if (selected) {
     style.lineHeight = `calc(2.5em - 2px)`
