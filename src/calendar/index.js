@@ -59,6 +59,7 @@ class Calendar extends React.Component {
   render () {
     const weekDays = []
     const days = []
+
     weekdays().forEach((weekday, i) => {
       weekDays.push(<Item key={i} label={weekday} />)
     })

@@ -1,15 +1,15 @@
 import React from 'react'
 
-import {Month} from './styles'
+import {StyledMonth} from './styles'
 
-class Wrapper extends React.Component {
+class Month extends React.Component {
   render () {
     return (
-      <Month>
+      <StyledMonth>
         {this.props.children}
-      </Month>
+      </StyledMonth>
     )
   }
 }
 
-export default Wrapper
+export default Month
