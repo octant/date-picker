@@ -4,14 +4,14 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import serializer from 'jest-glamor-react'
 
-import Month from './'
+import TimeContainer from './'
 
 expect.addSnapshotSerializer(serializer)
 
-describe('<Month /> appearance', () => {
+describe('<TimeContainer /> appearance', () => {
   test('displays the same', () => {
     const component = renderer.create(
-      <Month selected='2019-07-07' />
+      <TimeContainer selected='2019-07-07' />
     )
 
     let tree = component.toJSON()
