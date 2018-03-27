@@ -2,6 +2,7 @@ import glamorous from 'glamorous'
 
 export const StyledItem = glamorous.div({
   position: `relative`,
+  boxSizing: `border-box`,
   height: `2.5em`,
   width: `2.5em`,
   float: `left`,
@@ -18,9 +19,10 @@ export const StyledItem = glamorous.div({
 
   if (clickable) {
     style[':hover'] = {
-      cursor: 'pointer',
-      color: 'white',
-      backgroundColor: 'darkblue'
+      border: `2px #FFF solid`,
+      cursor: `pointer`,
+      color: `white`,
+      backgroundColor: `darkblue`
     }
   }
 
