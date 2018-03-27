@@ -25,6 +25,7 @@ exports[`<Calendar /> appearance displays the same 1`] = `
 .css-3,
 [data-css-3] {
   position: relative;
+  box-sizing: border-box;
   height: 2.5em;
   width: 2.5em;
   float: left;
@@ -37,6 +38,7 @@ exports[`<Calendar /> appearance displays the same 1`] = `
 .css-4,
 [data-css-4] {
   position: relative;
+  box-sizing: border-box;
   height: 2.5em;
   width: 2.5em;
   float: left;
@@ -48,28 +50,34 @@ exports[`<Calendar /> appearance displays the same 1`] = `
 
 .css-4:hover,
 [data-css-4]:hover {
+  line-height: calc(2.5em - 2px);
+  border: 1px #FFF solid;
   cursor: pointer;
   color: white;
-  background-color: darkblue;
+  background-color: oragered;
 }
 
 .css-6,
 [data-css-6] {
   position: relative;
+  box-sizing: border-box;
   height: 2.5em;
   width: 2.5em;
   float: left;
   margin: 0em;
-  line-height: 2.5em;
+  line-height: calc(2.5em - 2px);
   text-align: center;
   background-color: white;
+  border: 1px #000 solid;
 }
 
 .css-6:hover,
 [data-css-6]:hover {
+  line-height: calc(2.5em - 2px);
+  border: 1px #FFF solid;
   cursor: pointer;
   color: white;
-  background-color: darkblue;
+  background-color: oragered;
 }
 
 <div

@@ -9,20 +9,25 @@ export const StyledItem = glamorous.div({
   margin: `0em`,
   lineHeight: `2.5em`,
   textAlign: `center`,
-  backgroundColor: 'orangered'
+  backgroundColor: 'orangered',
+  color: `white`
 }, ({clickable, selected}) => {
   const style = {}
 
   if (selected) {
+    style.lineHeight = `calc(2.5em - 2px)`
+    style.border = `1px #000 solid`
+    style.color = `orangered`
     style.backgroundColor = 'white'
   }
 
   if (clickable) {
     style[':hover'] = {
-      border: `2px #FFF solid`,
+      lineHeight: `calc(2.5em - 2px)`,
+      border: `1px #FFF solid`,
       cursor: `pointer`,
       color: `white`,
-      backgroundColor: `darkblue`
+      backgroundColor: `oragered`
     }
   }
 
