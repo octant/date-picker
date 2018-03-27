@@ -32,6 +32,11 @@ export const buildCalendar = (startDate) => {
   return [...days]
 }
 
+export const weekdays = (offset = 0) => {
+  const week = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+  return [...week.slice(offset), ...week.slice(0, offset)]
+}
+
 export const normalizeDate = (dateString) => {
   const dateArray = dateString.split('-').map((i) => (parseInt(i, 10)))
 

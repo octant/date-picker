@@ -4,7 +4,8 @@ import {
   getPreviousMonth,
   getNextMonth,
   normalizeDate,
-  toDateString
+  toDateString,
+  weekdays
 } from './calendar-fns'
 
 describe('Previous month function', () => {
@@ -74,5 +75,15 @@ describe('normalizeDate', () => {
     const dateString = '2016-04-12'
 
     expect(normalizeDate(dateString)).toEqual(new Date(2016, 3, 12))
+  })
+})
+
+describe('weekdays', () => {
+  test('returns Su-Sa by default', () => {
+    expect(weekdays().join(' ')).toEqual('Su Mo Tu We Th Fr Sa')
+  })
+
+  test('returns Mo-Su with an offset of 1', () => {
+    expect(weekdays(1).join(' ')).toEqual('Mo Tu We Th Fr Sa Su')
   })
 })
