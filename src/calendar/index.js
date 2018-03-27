@@ -10,7 +10,7 @@ import {
   weekdays
 } from '../lib/calendar-fns'
 import {Container} from './styles'
-import Month from './month'
+import TimeContainer from './time-container'
 import Grid from './grid'
 import Item from './item'
 
@@ -72,13 +72,13 @@ class Calendar extends React.Component {
     return (
       <Container>
         <h1>{this.state.selected}</h1>
-        <Month>
+        <TimeContainer>
           <div>
             <button onClick={this._handlePrevClick}> {'<'} </button> <button onClick={this._handleNextClick}> {'>'} </button>
           </div>
           <Grid items={weekDays} itemWidth={2.5} widthUnit={'em'} itemsWide={7} />
           <Grid items={days} itemWidth={2.5} widthUnit={'em'} itemsWide={7} />
-        </Month>
+        </TimeContainer>
       </Container>
     )
   }
