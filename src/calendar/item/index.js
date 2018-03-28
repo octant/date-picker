@@ -18,6 +18,8 @@ class Item extends React.Component {
   render () {
     return (
       <StyledItem
+        width={this.props.width}
+        units={this.props.units}
         clickable={this.props.clickMethod !== undefined}
         onClick={this._handleClick}
         muted={this.props.muted}

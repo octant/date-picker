@@ -11,28 +11,28 @@ exports[`<Month /> appearance displays the same 1`] = `
 [data-css-1] {
   position: relative;
   box-sizing: border-box;
-  height: 2.5em;
-  width: 2.5em;
   float: left;
   margin: 0em;
-  line-height: 2.5em;
   text-align: center;
   background-color: orangered;
   color: white;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
 }
 
 .css-2,
 [data-css-2] {
   position: relative;
   box-sizing: border-box;
-  height: 2.5em;
-  width: 2.5em;
   float: left;
   margin: 0em;
-  line-height: 2.5em;
   text-align: center;
   background-color: orangered;
   color: #BBB;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
 }
 
 <div

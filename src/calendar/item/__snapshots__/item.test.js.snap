@@ -5,14 +5,14 @@ exports[`<Item /> appearance renders the same each time 1`] = `
 [data-css-0] {
   position: relative;
   box-sizing: border-box;
-  height: 2.5em;
-  width: 2.5em;
   float: left;
   margin: 0em;
-  line-height: 2.5em;
   text-align: center;
   background-color: orangered;
   color: white;
+  width: undefinedundefined;
+  height: undefinedundefined;
+  line-height: undefinedundefined;
 }
 
 <div

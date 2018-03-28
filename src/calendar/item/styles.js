@@ -3,23 +3,24 @@ import glamorous from 'glamorous'
 export const StyledItem = glamorous.div({
   position: `relative`,
   boxSizing: `border-box`,
-  height: `2.5em`,
-  width: `2.5em`,
   float: `left`,
   margin: `0em`,
-  lineHeight: `2.5em`,
   textAlign: `center`,
   backgroundColor: 'orangered',
   color: `white`
-}, ({clickable, selected, muted, focused}) => {
-  const style = {}
+}, ({width, units, clickable, selected, muted, focused}) => {
+  const style = {
+    width: `${width}${units}`,
+    height: `${width}${units}`,
+    lineHeight: `${width}${units}`
+  }
 
   /**
    * Come up with names for the 'styles'
    * selected, highlighted, emphasized etc...
    */
   if (focused) {
-    style.lineHeight = `calc(2.5em - 2px)`
+    style.lineHeight = `calc(${style.height} - 2px)`
     style.border = `1px #FFF solid`
     style.color = `#FFF`
     style.backgroundColor = 'orangered'
@@ -30,7 +31,7 @@ export const StyledItem = glamorous.div({
   }
 
   if (selected) {
-    style.lineHeight = `calc(2.5em - 2px)`
+    style.lineHeight = `calc(${style.height} - 2px)`
     style.fontWeight = `bold`
     style.border = `1px #0A64A4 solid`
     style.color = `orangered`
@@ -39,7 +40,7 @@ export const StyledItem = glamorous.div({
 
   if (clickable) {
     style[':hover'] = {
-      lineHeight: `calc(2.5em - 2px)`,
+      lineHeight: `calc(${style.height} - 2px)`,
       border: `1px #FFF solid`,
       cursor: `pointer`,
       color: `white`,
