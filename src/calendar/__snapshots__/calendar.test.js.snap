@@ -93,7 +93,8 @@ exports[`<Calendar /> appearance displays the same 1`] = `
   line-height: calc(2.5em - 2px);
   text-align: center;
   background-color: white;
-  color: 0A64A4;
+  color: orangered;
+  font-weight: bold;
   border: 1px #0A64A4 solid;
 }
 

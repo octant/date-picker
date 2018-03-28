@@ -27,6 +27,7 @@ class Month extends React.Component {
           id={dateString}
           clickMethod={this.props.clickMethod}
           date={date}
+          focused={this.context.today === dateString}
           muted={currentDate.slice(0, 7) !== dateString.slice(0, 7)}
           selected={this.context.selected === dateString}
           label={date.getDate()} />
@@ -50,7 +51,8 @@ Month.propTypes = {
 
 Month.contextTypes = {
   selected: PropTypes.string,
-  currentDate: PropTypes.string
+  currentDate: PropTypes.string,
+  today: PropTypes.string
 }
 
 export default Month

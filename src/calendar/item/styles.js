@@ -11,8 +11,19 @@ export const StyledItem = glamorous.div({
   textAlign: `center`,
   backgroundColor: 'orangered',
   color: `white`
-}, ({clickable, selected, muted}) => {
+}, ({clickable, selected, muted, focused}) => {
   const style = {}
+
+  /**
+   * Come up with names for the 'styles'
+   * selected, highlighted, emphasized etc...
+   */
+  if (focused) {
+    style.lineHeight = `calc(2.5em - 2px)`
+    style.border = `1px #FFF solid`
+    style.color = `#FFF`
+    style.backgroundColor = 'orangered'
+  }
 
   if (muted) {
     style.color = `#BBB`
@@ -20,8 +31,9 @@ export const StyledItem = glamorous.div({
 
   if (selected) {
     style.lineHeight = `calc(2.5em - 2px)`
+    style.fontWeight = `bold`
     style.border = `1px #0A64A4 solid`
-    style.color = `0A64A4`
+    style.color = `orangered`
     style.backgroundColor = 'white'
   }
 
