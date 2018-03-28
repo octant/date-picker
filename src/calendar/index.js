@@ -30,6 +30,7 @@ class Calendar extends React.Component {
     this._handleClick = this._handleClick.bind(this)
     this._handleNextClick = this._handleNextClick.bind(this)
     this._handlePrevClick = this._handlePrevClick.bind(this)
+    this._handleTodayClick = this._handleTodayClick.bind(this)
   }
 
   getChildContext () {
@@ -38,6 +39,14 @@ class Calendar extends React.Component {
       currentDate: format(this.state.currentDate, 'YYYY-MM-DD'),
       today: format(new Date(), 'YYYY-MM-DD')
     }
+  }
+
+  _handleTodayClick () {
+    const newDate = new Date()
+    this.setState({
+      currentDate: newDate,
+      startDate: getCurrentMonth(newDate)
+    })
   }
 
   _handleClick ({date}) {
@@ -67,10 +76,12 @@ class Calendar extends React.Component {
   render () {
     return (
       <Container>
-        <h1>{this.state.selected}</h1>
+        <button onClick={this._handleTodayClick}>{format(new Date(), 'YYYY-MM-DD')}</button>
         <TimeContainer>
           <div>
-            <button onClick={this._handlePrevClick}> {'<'} </button> <button onClick={this._handleNextClick}> {'>'} </button>
+            <button onClick={this._handlePrevClick}> {'<'} </button>
+            <button>{format(this.state.currentDate, 'MM, YYYY')}</button>
+            <button onClick={this._handleNextClick}> {'>'} </button>
           </div>
           <Month startDate={this.state.startDate} clickMethod={this._handleClick} />
         </TimeContainer>

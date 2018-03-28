@@ -110,9 +110,11 @@ exports[`<Calendar /> appearance displays the same 1`] = `
 <div
   className="css-0"
 >
-  <h1>
-    2019-06-04
-  </h1>
+  <button
+    onClick={[Function]}
+  >
+    2018-03-27
+  </button>
   <div
     className="css-1"
   >
@@ -124,7 +126,9 @@ exports[`<Calendar /> appearance displays the same 1`] = `
         &lt;
          
       </button>
-       
+      <button>
+        06, 2019
+      </button>
       <button
         onClick={[Function]}
       >
