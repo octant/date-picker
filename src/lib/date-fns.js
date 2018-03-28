@@ -6,9 +6,9 @@ export const replace = (regex, datePart) => {
 }
 
 export const format = (date, formatString) => {
-  const replaceYear = replace(new RegExp('Y{2,4}'), date.getFullYear())
-  const replaceMonth = replace(new RegExp('M{1,2}'), ('0' + (date.getMonth() + 1)).slice(-2))
-  const replaceDay = replace(new RegExp('D{1,2}'), ('0' + date.getDate()).slice(-2))
+  const replaceYear = replace(/Y{2,4}/, date.getFullYear())
+  const replaceMonth = replace(/M{1,2}/, ('0' + (date.getMonth() + 1)).slice(-2))
+  const replaceDay = replace(/D{1,2}/, ('0' + date.getDate()).slice(-2))
 
   return replaceYear(replaceMonth(replaceDay(formatString)))
 }
