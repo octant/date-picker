@@ -53,6 +53,10 @@ export const getNextYear = (date) => {
   return nextYear(date.getFullYear())
 }
 
+export const getCurrentYear = (date) => {
+  return nextYear(date.getFullYear() - 1)
+}
+
 export const getPreviousMonth = (date, offset = 0) => {
   return previousMonth(date.getFullYear(), date.getMonth(), offset)
 }

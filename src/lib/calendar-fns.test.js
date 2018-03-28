@@ -1,6 +1,7 @@
 /* eslint-env jest */
 
 import {
+  getCurrentYear,
   getNextMonth,
   getNextYear,
   getPreviousMonth,
@@ -27,6 +28,17 @@ describe('getNextYear', () => {
     expect(firstDay.getDate()).toBe(1)
     expect(firstDay.getMonth()).toBe(0)
     expect(firstDay.getFullYear()).toBe(2019)
+  })
+})
+
+describe('getCurrentYear', () => {
+  test('gets the first date to display for the next year', () => {
+    const date = new Date(2018, 2, 28)
+    const firstDay = getCurrentYear(date)
+
+    expect(firstDay.getDate()).toBe(1)
+    expect(firstDay.getMonth()).toBe(0)
+    expect(firstDay.getFullYear()).toBe(2018)
   })
 })
 
