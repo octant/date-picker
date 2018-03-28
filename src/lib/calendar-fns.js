@@ -1,5 +1,5 @@
 const previousYear = (year) => {
-  return new Date(2018, 0 - 4, 1)
+  return new Date(year, 0 - 4, 1)
 }
 
 const nextYear = (year) => {
