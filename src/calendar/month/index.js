@@ -12,6 +12,21 @@ import {
 } from '../../lib/date-fns'
 
 class Month extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this._handleNextClick = this._handleNextClick.bind(this)
+    this._handlePreviousClick = this._handlePreviousClick.bind(this)
+  }
+
+  _handleNextClick () {
+    this.context.nextMonthMethod(format(this.props.startDate, 'YYYY-MM'))
+  }
+
+  _handlePreviousClick () {
+    this.context.previousMonthMethod(format(this.props.startDate, 'YYYY-MM'))
+  }
+
   items () {
     const days = []
 
@@ -21,7 +36,7 @@ class Month extends React.Component {
 
     buildCalendar(this.props.startDate).forEach((date) => {
       const dateString = format(date, 'YYYY-MM-DD')
-      const currentDate = this.context.currentDate || format(new Date(), 'YYYY-MM-DD')
+      const currentDate = format(this.props.currentDate, 'YYYY-MM-DD')
       days.push(
         <Item
           id={dateString}
@@ -39,7 +54,14 @@ class Month extends React.Component {
 
   render () {
     return (
-      <Grid items={this.items()} itemWidth={2.5} widthUnit={'em'} itemsWide={7} />
+      <div>
+        <div>
+          <button onClick={this._handlePreviousClick}> {'<'} </button>
+          <button>{format(this.props.currentDate, 'MM, YYYY')}</button>
+          <button onClick={this._handleNextClick}> {'>'} </button>
+        </div>
+        <Grid items={this.items()} itemWidth={2.5} widthUnit={'em'} itemsWide={7} />
+      </div>
     )
   }
 }
@@ -51,8 +73,9 @@ Month.propTypes = {
 
 Month.contextTypes = {
   selected: PropTypes.string,
-  currentDate: PropTypes.string,
-  today: PropTypes.string
+  today: PropTypes.string,
+  nextMonthMethod: PropTypes.func,
+  previousMonthMethod: PropTypes.func
 }
 
 export default Month

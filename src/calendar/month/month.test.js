@@ -15,7 +15,7 @@ expect.addSnapshotSerializer(serializer)
 describe('<Month /> appearance', () => {
   test('displays the same', () => {
     const component = renderer.create(
-      <Month startDate={new Date(2018, 5, 1)} />
+      <Month currentDate={new Date(2018, 5, 1)} startDate={new Date(2018, 4, 27)} />
     )
 
     let tree = component.toJSON()
@@ -25,13 +25,13 @@ describe('<Month /> appearance', () => {
 
 describe('<Month /> functionality', () => {
   test('displays a Grid', () => {
-    const month = mount(<Month startDate={new Date(2018, 1, 25)} />)
+    const month = mount(<Month currentDate={new Date(2018, 2, 20)} startDate={new Date(2018, 1, 25)} />)
 
     expect(month.find('Grid').length).toBe(1)
   })
 
   test('displays correct dates', () => {
-    const month = mount(<Month startDate={new Date(2018, 3, 1)} />)
+    const month = mount(<Month currentDate={new Date(2018, 3, 20)} startDate={new Date(2018, 3, 1)} />)
 
     expect(month.find('Item').first().text()).toBe('Su')
     expect(month.find('Item').last().text()).toBe('12')
@@ -39,15 +39,15 @@ describe('<Month /> functionality', () => {
   })
 
   test('sets an "id" property on each item', () => {
-    const month = mount(<Month startDate={new Date(2018, 1, 25)} />)
+    const month = mount(<Month currentDate={new Date(2018, 2, 25)} startDate={new Date(2018, 1, 28)} />)
 
     expect(month.find({id: '2018-03-22'}).length).toBe(1)
   })
 
-  test('all instances of  day Items are clickable', () => {
+  test('all instances of day Items are clickable', () => {
     const clickMethod = sinon.spy()
     const month = mount(
-      <Month clickMethod={clickMethod} startDate={new Date(2018, 2, 25)} />
+      <Month currentDate={new Date(2018, 2, 25)} clickMethod={clickMethod} startDate={new Date(2018, 2, 1)} />
     )
 
     month.find('Item').forEach((item) => {
