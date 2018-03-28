@@ -40,6 +40,15 @@ export const buildCalendar = (startDate) => {
   return [...days]
 }
 
+export const buildYear = (startDate) => {
+  const months = []
+  for (let i = 0; i < 16; i++) {
+    months.push(new Date(startDate.getFullYear(), startDate.getMonth() + i, 1))
+  }
+
+  return [...months]
+}
+
 export const weekdays = (offset = 0) => {
   const week = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
   return [...week.slice(offset), ...week.slice(0, offset)]
