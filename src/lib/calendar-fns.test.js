@@ -1,12 +1,36 @@
 /* eslint-env jest */
 
 import {
-  getPreviousMonth,
   getNextMonth,
+  getNextYear,
+  getPreviousMonth,
+  getPreviousYear,
   weekdays
 } from './calendar-fns'
 
-describe('Previous month function', () => {
+describe('getPreviousYear', () => {
+  test('gets the first date to display for the previous year', () => {
+    const date = new Date(2018, 2, 28)
+    const firstDay = getPreviousYear(date)
+
+    expect(firstDay.getDate()).toBe(1)
+    expect(firstDay.getMonth()).toBe(8)
+    expect(firstDay.getFullYear()).toBe(2017)
+  })
+})
+
+describe('getNextYear', () => {
+  test('gets the first date to display for the next year', () => {
+    const date = new Date(2018, 2, 28)
+    const firstDay = getNextYear(date)
+
+    expect(firstDay.getDate()).toBe(1)
+    expect(firstDay.getMonth()).toBe(0)
+    expect(firstDay.getFullYear()).toBe(2019)
+  })
+})
+
+describe('getPreviousMonth', () => {
   test('gets the first date to display for the previous month', () => {
     const date = new Date(2018, 4, 23)
     const firstDay = getPreviousMonth(date)
@@ -33,7 +57,7 @@ describe('Previous month function', () => {
   })
 })
 
-describe('Next month function', () => {
+describe('getNextMonth', () => {
   test('gets the first date to display for the next month', () => {
     const date = new Date(2018, 2, 23)
     const firstDay = getNextMonth(date)

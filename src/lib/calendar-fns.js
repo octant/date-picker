@@ -1,4 +1,12 @@
-const previous = (year, month, offset) => {
+const previousYear = (year) => {
+  return new Date(2018, 0 - 4, 1)
+}
+
+const nextYear = (year) => {
+  return new Date(year + 1, 0, 1)
+}
+
+const previousMonth = (year, month, offset) => {
   const firstDayIndex = new Date(year, month - 1, 1).getDay()
   const daysInMonth = new Date(year, month, 0).getDate()
   const previousMonthFill = (firstDayIndex - 1 + 7) % 7
@@ -11,7 +19,7 @@ const previous = (year, month, offset) => {
   }
 }
 
-const next = (year, month, offset) => {
+const nextMonth = (year, month, offset) => {
   const firstDayIndex = new Date(year, month + 1, 1).getDay()
   const previousMonthFill = (0 - 7) % 7
   const shift = firstDayIndex + previousMonthFill - offset
@@ -37,14 +45,22 @@ export const weekdays = (offset = 0) => {
   return [...week.slice(offset), ...week.slice(0, offset)]
 }
 
+export const getPreviousYear = (date) => {
+  return previousYear(date.getFullYear())
+}
+
+export const getNextYear = (date) => {
+  return nextYear(date.getFullYear())
+}
+
 export const getPreviousMonth = (date, offset = 0) => {
-  return previous(date.getFullYear(), date.getMonth(), offset)
+  return previousMonth(date.getFullYear(), date.getMonth(), offset)
 }
 
 export const getCurrentMonth = (date, offset = 0) => {
-  return next(date.getFullYear(), date.getMonth() - 1, offset)
+  return nextMonth(date.getFullYear(), date.getMonth() - 1, offset)
 }
 
 export const getNextMonth = (date, offset = 0) => {
-  return next(date.getFullYear(), date.getMonth(), offset)
+  return nextMonth(date.getFullYear(), date.getMonth(), offset)
 }
