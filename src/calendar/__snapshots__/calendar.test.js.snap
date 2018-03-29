@@ -107,59 +107,13 @@ exports[`<Calendar /> appearance displays the same 1`] = `
   background-color: #0A64A4;
 }
 
-.css-10,
-[data-css-10] {
-  position: relative;
-  box-sizing: border-box;
-  float: left;
-  margin: 0em;
-  text-align: center;
-  background-color: orangered;
-  color: white;
-  width: 4.375em;
-  height: 4.375em;
-  line-height: 4.375em;
-}
-
-.css-10:hover,
-[data-css-10]:hover {
-  line-height: calc(4.375em - 2px);
-  border: 1px #FFF solid;
-  cursor: pointer;
-  color: white;
-  background-color: #0A64A4;
-}
-
-.css-12,
-[data-css-12] {
-  position: relative;
-  box-sizing: border-box;
-  float: left;
-  margin: 0em;
-  text-align: center;
-  background-color: orangered;
-  color: #BBB;
-  width: 4.375em;
-  height: 4.375em;
-  line-height: 4.375em;
-}
-
-.css-12:hover,
-[data-css-12]:hover {
-  line-height: calc(4.375em - 2px);
-  border: 1px #FFF solid;
-  cursor: pointer;
-  color: white;
-  background-color: #0A64A4;
-}
-
 <div
   className="css-0"
 >
   <button
     onClick={[Function]}
   >
-    2018-03-28
+    2018-03-29
   </button>
   <div
     className="css-1"
@@ -173,7 +127,9 @@ exports[`<Calendar /> appearance displays the same 1`] = `
           &lt;
            
         </button>
-        <button>
+        <button
+          onClick={[Function]}
+        >
           06, 2019
         </button>
         <button
@@ -480,129 +436,6 @@ exports[`<Calendar /> appearance displays the same 1`] = `
           onClick={[Function]}
         >
           6
-        </div>
-      </div>
-    </div>
-    <div>
-      <div>
-        <button
-          onClick={[Function]}
-        >
-           
-          &lt;
-           
-        </button>
-        <button
-          disabled={true}
-        >
-          2019
-        </button>
-        <button
-          onClick={[Function]}
-        >
-           
-          &gt;
-           
-        </button>
-      </div>
-      <div
-        className="css-2"
-      >
-        <div
-          className="css-10"
-          onClick={[Function]}
-        >
-          Jan
-        </div>
-        <div
-          className="css-10"
-          onClick={[Function]}
-        >
-          Feb
-        </div>
-        <div
-          className="css-10"
-          onClick={[Function]}
-        >
-          Mar
-        </div>
-        <div
-          className="css-10"
-          onClick={[Function]}
-        >
-          Apr
-        </div>
-        <div
-          className="css-10"
-          onClick={[Function]}
-        >
-          May
-        </div>
-        <div
-          className="css-10"
-          onClick={[Function]}
-        >
-          Jun
-        </div>
-        <div
-          className="css-10"
-          onClick={[Function]}
-        >
-          Jul
-        </div>
-        <div
-          className="css-10"
-          onClick={[Function]}
-        >
-          Aug
-        </div>
-        <div
-          className="css-10"
-          onClick={[Function]}
-        >
-          Sep
-        </div>
-        <div
-          className="css-10"
-          onClick={[Function]}
-        >
-          Oct
-        </div>
-        <div
-          className="css-10"
-          onClick={[Function]}
-        >
-          Nov
-        </div>
-        <div
-          className="css-10"
-          onClick={[Function]}
-        >
-          Dec
-        </div>
-        <div
-          className="css-12"
-          onClick={[Function]}
-        >
-          Jan
-        </div>
-        <div
-          className="css-12"
-          onClick={[Function]}
-        >
-          Feb
-        </div>
-        <div
-          className="css-12"
-          onClick={[Function]}
-        >
-          Mar
-        </div>
-        <div
-          className="css-12"
-          onClick={[Function]}
-        >
-          Apr
         </div>
       </div>
     </div>

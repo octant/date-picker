@@ -44,7 +44,9 @@ exports[`<Month /> appearance displays the same 1`] = `
       &lt;
        
     </button>
-    <button>
+    <button
+      onClick={[Function]}
+    >
       06, 2018
     </button>
     <button

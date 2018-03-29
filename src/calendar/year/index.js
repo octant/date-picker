@@ -27,7 +27,7 @@ class Year extends React.Component {
     const monthNames = monthValues.abbreviated
     const currentDate = format(this.props.currentDate, 'YYYY-MM-DD')
     const year = buildYear(this.props.startDate)
-
+    console.log(currentDate)
     year.forEach((month) => {
       const id = format(month, 'YYYY-MM')
       months.push(
@@ -48,7 +48,7 @@ class Year extends React.Component {
       <div>
         <div>
           <button onClick={this._handlePreviousClick}> {'<'} </button>
-          <button disabled>{format(this.props.currentDate, 'YYYY')}</button>
+          <button disabled>{this.props.currentDate.getFullYear()}</button>
           <button onClick={this._handleNextClick}> {'>'} </button>
         </div>
         <Grid items={this.items()} itemWidth={4.375} widthUnit={'em'} itemsWide={4} />

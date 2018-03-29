@@ -17,6 +17,7 @@ class Month extends React.Component {
 
     this._handleNextClick = this._handleNextClick.bind(this)
     this._handlePreviousClick = this._handlePreviousClick.bind(this)
+    this._handleModeClick = this._handleModeClick.bind(this)
   }
 
   _handleNextClick () {
@@ -25,6 +26,10 @@ class Month extends React.Component {
 
   _handlePreviousClick () {
     this.context.previousMonthMethod(format(this.props.startDate, 'YYYY-MM'))
+  }
+
+  _handleModeClick () {
+    this.context.modeMethod('year')
   }
 
   items () {
@@ -57,7 +62,7 @@ class Month extends React.Component {
       <div>
         <div>
           <button onClick={this._handlePreviousClick}> {'<'} </button>
-          <button>{format(this.props.currentDate, 'MM, YYYY')}</button>
+          <button onClick={this._handleModeClick}>{format(this.props.currentDate, 'MM, YYYY')}</button>
           <button onClick={this._handleNextClick}> {'>'} </button>
         </div>
         <Grid items={this.items()} itemWidth={2.5} widthUnit={'em'} itemsWide={7} />
@@ -75,7 +80,8 @@ Month.contextTypes = {
   selected: PropTypes.string,
   today: PropTypes.string,
   nextMonthMethod: PropTypes.func,
-  previousMonthMethod: PropTypes.func
+  previousMonthMethod: PropTypes.func,
+  modeMethod: PropTypes.func
 }
 
 export default Month

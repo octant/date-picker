@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import {
   getCurrentMonth,
+  getCurrentYear,
   getNextMonth,
   getNextYear,
   getPreviousMonth,
@@ -26,14 +27,16 @@ class Calendar extends React.Component {
 
     this.state = {
       currentDate: currentDate,
-      yearStart: new Date(currentDate.getFullYear(), 0, 1),
+      yearStart: getCurrentYear(currentDate),
       startDate: getCurrentMonth(currentDate),
-      selected: props.selected || ''
+      selected: props.selected || '',
+      mode: 'month'
     }
 
     this._handleClick = this._handleClick.bind(this)
     this._handleNextClick = this._handleNextClick.bind(this)
     this._handleNextYearClick = this._handleNextYearClick.bind(this)
+    this._handleModeClick = this._handleModeClick.bind(this)
     this._handleMonthClick = this._handleMonthClick.bind(this)
     this._handlePrevClick = this._handlePrevClick.bind(this)
     this._handlePrevYearClick = this._handlePrevYearClick.bind(this)
@@ -48,13 +51,19 @@ class Calendar extends React.Component {
       nextMonthMethod: this._handleNextClick,
       nextYearMethod: this._handleNextYearClick,
       previousMonthMethod: this._handlePrevClick,
-      previousYearMethod: this._handlePrevYearClick
+      previousYearMethod: this._handlePrevYearClick,
+      modeMethod: this._handleModeClick
     }
+  }
+
+  _handleModeClick (mode) {
+    this.setState({mode})
   }
 
   _handleTodayClick () {
     const newDate = new Date()
     this.setState({
+      mode: 'month',
       currentDate: newDate,
       startDate: getCurrentMonth(newDate),
       yearStart: new Date(newDate.getFullYear(), 0, 1)
@@ -70,9 +79,10 @@ class Calendar extends React.Component {
   _handleMonthClick ({id}) {
     const newDate = stringToDate(id)
     this.setState({
+      mode: 'month',
       currentDate: newDate,
       startDate: getCurrentMonth(newDate),
-      yearStart: new Date(newDate.getFullYear(), 0, 1)
+      yearStart: getCurrentYear(newDate)
     })
   }
 
@@ -87,10 +97,12 @@ class Calendar extends React.Component {
   }
 
   _handleNextYearClick () {
-    const {yearStart} = this.state
-    const newDate = new Date(yearStart.getFullYear() + 1, 0, 1)
+    const {currentDate} = this.state
+    const newDate = getNextYear(currentDate)
     this.setState({
-      yearStart: getNextYear(newDate)
+      currentDate: newDate,
+      startDate: getCurrentMonth(newDate),
+      yearStart: newDate
     })
   }
 
@@ -106,25 +118,34 @@ class Calendar extends React.Component {
 
   _handlePrevYearClick () {
     const {currentDate} = this.state
-    const newDate = getPreviousYear(currentDate)
+    const newDate = new Date(currentDate.getFullYear() - 1, 0, 1)
     this.setState({
-      yearStart: newDate
+      currentDate: newDate,
+      startDate: getCurrentMonth(newDate),
+      yearStart: getPreviousYear(currentDate)
     })
   }
 
+  show () {
+    switch (this.state.mode) {
+      case 'year':
+        return <Year
+          currentDate={this.state.currentDate}
+          startDate={this.state.yearStart}
+          clickMethod={this._handleMonthClick} />
+      default:
+        return <Month
+          currentDate={this.state.currentDate}
+          startDate={this.state.startDate}
+          clickMethod={this._handleClick} />
+    }
+  }
   render () {
     return (
       <Container>
         <button onClick={this._handleTodayClick}>{format(new Date(), 'YYYY-MM-DD')}</button>
         <TimeContainer>
-          <Month
-            currentDate={this.state.currentDate}
-            startDate={this.state.startDate}
-            clickMethod={this._handleClick} />
-          <Year
-            currentDate={this.state.currentDate}
-            startDate={this.state.yearStart}
-            clickMethod={this._handleMonthClick} />
+          {this.show()}
         </TimeContainer>
       </Container>
     )
@@ -138,7 +159,8 @@ Calendar.childContextTypes = {
   nextMonthMethod: PropTypes.func,
   nextYearMethod: PropTypes.func,
   previousMonthMethod: PropTypes.func,
-  previousYearMethod: PropTypes.func
+  previousYearMethod: PropTypes.func,
+  modeMethod: PropTypes.func
 }
 
 export default Calendar
