@@ -7,8 +7,37 @@ import {
   getNextYear,
   getPreviousMonth,
   getPreviousYear,
-  weekdays
+  weekdays,
+  previousDecade,
+  nextDecade,
+  getCurrentDecade
 } from './calendar-fns'
+
+describe('decade functions', () => {
+  test('next', () => {
+    expect(getCurrentDecade(new Date(2018, 2, 28))).toBe(2010)
+    expect(getCurrentDecade(new Date(2020, 4, 4))).toBe(2020)
+  })
+
+  test('previous', () => {
+    expect(previousDecade(2020)).toBe(2006)
+    expect(previousDecade(2000)).toBe(1986)
+    expect(previousDecade(1990)).toBe(1978)
+  })
+
+  test('next', () => {
+    expect(nextDecade(2010)).toBe(2018)
+    expect(nextDecade(2020)).toBe(2030)
+    expect(nextDecade(2030)).toBe(2038)
+  })
+
+  test('together', () => {
+    const date = new Date(2021, 11, 14)
+    const startDate = getCurrentDecade(date)
+    expect(startDate).toBe(2020)
+    expect(nextDecade(2020)).toBe(2028)
+  })
+})
 
 describe('getPreviousYear', () => {
   test('gets the first date to display for the previous year', () => {
