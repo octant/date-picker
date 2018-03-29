@@ -5,7 +5,7 @@ import './App.css'
 class App extends Component {
   render () {
     return (
-      <Calendar />
+      <Calendar selected='2018-02-04' />
     )
   }
 }

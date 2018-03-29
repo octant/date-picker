@@ -36,6 +36,7 @@ class Year extends React.Component {
           clickMethod={this.props.clickMethod}
           focused={(this.context.today || '').slice(0, 7) === id}
           muted={currentDate.slice(0, 4) !== id.slice(0, 4)}
+          selected={(this.context.selected || '').slice(0, 7) === id}
           label={monthNames[month.getMonth()]} />
       )
     })
@@ -63,6 +64,7 @@ Year.propTypes = {
 }
 
 Year.contextTypes = {
+  selected: PropTypes.string,
   currentDate: PropTypes.string,
   today: PropTypes.string,
   nextYearMethod: PropTypes.func,
