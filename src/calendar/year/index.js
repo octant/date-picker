@@ -27,7 +27,7 @@ class Year extends React.Component {
     const monthNames = monthValues.abbreviated
     const currentDate = format(this.props.currentDate, 'YYYY-MM-DD')
     const year = buildYear(this.props.startDate)
-    console.log(currentDate)
+
     year.forEach((month) => {
       const id = format(month, 'YYYY-MM')
       months.push(

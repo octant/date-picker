@@ -17,7 +17,7 @@ describe('getPreviousYear', () => {
 
     expect(firstDay.getDate()).toBe(1)
     expect(firstDay.getMonth()).toBe(8)
-    expect(firstDay.getFullYear()).toBe(2017)
+    expect(firstDay.getFullYear()).toBe(2016)
   })
 })
 
