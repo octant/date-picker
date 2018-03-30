@@ -1,5 +1,5 @@
-export const currentDecade = (year) => {
-  return year - year % 10
+export const currentDecade = (decade) => {
+  return (decade - 2) + ((decade % 20) / 5)
 }
 
 export const nextDecade = (decade) => {
@@ -91,13 +91,19 @@ export const getNextMonth = (date, offset = 0) => {
 }
 
 export const getCurrentDecade = (date) => {
-  return currentDecade(date.getFullYear())
+  const year = date.getFullYear()
+  const decade = year - year % 10
+  return currentDecade(decade)
 }
 
 export const getNextDecade = (date) => {
-  return nextDecade(date.getFullYear())
+  const year = date.getFullYear()
+  const decade = year - year % 10
+  return nextDecade(decade)
 }
 
 export const getPreviousDecade = (date) => {
-  return previousDecade(date.getFullYear())
+  const year = date.getFullYear()
+  const decade = year - year % 10
+  return previousDecade(decade)
 }

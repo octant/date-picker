@@ -10,13 +10,14 @@ import {
   weekdays,
   previousDecade,
   nextDecade,
+  getNextDecade,
   getCurrentDecade
 } from './calendar-fns'
 
 describe('decade functions', () => {
   test('next', () => {
     expect(getCurrentDecade(new Date(2018, 2, 28))).toBe(2010)
-    expect(getCurrentDecade(new Date(2020, 4, 4))).toBe(2020)
+    expect(getCurrentDecade(new Date(2020, 4, 4))).toBe(2018)
   })
 
   test('previous', () => {
@@ -33,9 +34,8 @@ describe('decade functions', () => {
 
   test('together', () => {
     const date = new Date(2021, 11, 14)
-    const startDate = getCurrentDecade(date)
-    expect(startDate).toBe(2020)
-    expect(nextDecade(2020)).toBe(2028)
+    expect(getCurrentDecade(date)).toBe(2018)
+    expect(getNextDecade(date)).toBe(2030)
   })
 })
 
