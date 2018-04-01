@@ -7,34 +7,42 @@ import TimeContainer from './time-container'
 import TimeTraveler from './time-traveler'
 
 class Calendar extends React.Component {
+  show (state) {
+    const {controls, mode, selected, startOfMonth, startOfCalendar, today} = state
+
+    switch (mode) {
+      case 'decade':
+      case 'year':
+        return <Year
+          currentDate={startOfMonth}
+          startDate={startOfCalendar}
+          selected={selected}
+          today={today}
+          clickMethod={controls.selectDate}
+          modeMethod={controls.selectMode}
+          travelTo={controls.travelTo} />
+      default:
+        return <Month
+          currentDate={startOfMonth}
+          startDate={startOfCalendar}
+          selected={selected}
+          today={today}
+          clickMethod={controls.selectDate}
+          modeMethod={controls.selectMode}
+          travelTo={controls.travelTo} />
+    }
+  }
+
   render () {
     return (
       <TimeTraveler>
-        {fluxCapicitor => {
-          const {controls, mode, selected, startOfMonth, startOfCalendar, today} = fluxCapicitor
+        {fluxCapacitor => {
+          const {controls, today} = fluxCapacitor
           return (
             <Container>
               <button onClick={controls.today}>{today}</button>
               <TimeContainer>
-                {
-                  mode === 'month'
-                    ? <Month
-                      currentDate={startOfMonth}
-                      startDate={startOfCalendar}
-                      selected={selected}
-                      today={today}
-                      clickMethod={controls.selectDate}
-                      modeMethod={controls.selectMode}
-                      travelTo={controls.travelTo} />
-                    : <Year
-                      currentDate={startOfMonth}
-                      startDate={startOfCalendar}
-                      selected={selected}
-                      today={today}
-                      clickMethod={controls.selectDate}
-                      modeMethod={controls.selectMode}
-                      travelTo={controls.travelTo} />
-                }
+                {this.show(fluxCapacitor)}
               </TimeContainer>
             </Container>
           )
