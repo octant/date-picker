@@ -4,7 +4,8 @@ import {
   format,
   partialToFullDate,
   replace,
-  stringToDate
+  stringToDate,
+  startOf
 } from './date-fns'
 
 describe('replace', () => {
@@ -75,5 +76,23 @@ describe('stringToDate', () => {
     const dateString = '2020'
 
     expect(stringToDate(dateString)).toEqual(new Date(2020, 0, 1))
+  })
+
+  test('returns today when passed an empty string', () => {
+    const today = new Date()
+    expect(stringToDate('')).toEqual(new Date(today.getFullYear(), today.getMonth(), 1))
+  })
+})
+
+describe('startOf', () => {
+  test('returns first day of month', () => {
+    const date = new Date(2018, 2, 30)
+    const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 1)
+    const startOfYear = new Date(date.getFullYear(), 0, 1)
+    const startOfDecade = new Date(2010, 0, 1)
+
+    expect(startOf('month', date)).toEqual(startOfMonth)
+    expect(startOf('year', date)).toEqual(startOfYear)
+    expect(startOf('decade', date)).toEqual(startOfDecade)
   })
 })

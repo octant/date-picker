@@ -24,5 +24,76 @@ export const partialToFullDate = (y, m = 1, d = 1) => {
 }
 
 export const stringToDate = (dateString) => {
-  return partialToFullDate(...dateString.split('-'))
+  const today = new Date()
+  return dateString
+    ? partialToFullDate(...dateString.split('-'))
+    : partialToFullDate(today.getFullYear(), today.getMonth() + 1)
+}
+
+export const startOf = (selector, date) => {
+  switch (selector) {
+    case 'month':
+      return new Date(date.getFullYear(), date.getMonth(), 1)
+    case 'year':
+      return new Date(date.getFullYear(), 0, 1)
+    case 'decade':
+      const decade = date.getFullYear() - date.getFullYear() % 10
+      return new Date(decade, 0, 1)
+    default:
+      return date
+  }
+}
+
+export const getNextDecade = (date) => {
+  const decade = date.getFullYear() - date.getFullYear() % 10
+  return new Date(decade + 10, 0, 1)
+}
+
+export const getNextYear = (date) => {
+  return new Date(date.getFullYear() + 1, 0, 1)
+}
+
+export const getNextMonth = (date) => {
+  return new Date(date.getFullYear(), date.getMonth() + 1, 1)
+}
+
+export const getPreviousDecade = (date) => {
+  const decade = date.getFullYear() - date.getFullYear() % 10
+  return new Date(decade - 10, 0, 1)
+}
+
+export const getPreviousYear = (date) => {
+  return new Date(date.getFullYear() - 1, 0, 1)
+}
+
+export const getPreviousMonth = (date) => {
+  return new Date(date.getFullYear(), date.getMonth() - 1, 1)
+}
+
+export const getNext = (duration, currentDate) => {
+  switch (duration) {
+    case 'decade':
+      return getNextDecade(currentDate)
+    case 'year':
+      return getNextYear(currentDate)
+    default:
+      return getNextMonth(currentDate)
+  }
+}
+
+export const getPrevious = (duration, currentDate) => {
+  switch (duration) {
+    case 'decade':
+      return getPreviousDecade(currentDate)
+    case 'year':
+      return getPreviousYear(currentDate)
+    default:
+      return getPreviousMonth(currentDate)
+  }
+}
+
+export const get = (direction, duration, currentDate) => {
+  return direction === 'next'
+    ? getNext(duration, currentDate)
+    : getPrevious(duration, currentDate)
 }

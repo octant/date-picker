@@ -11,31 +11,33 @@ import {
   previousDecade,
   nextDecade,
   getNextDecade,
-  getCurrentDecade
+  getCurrentDecade,
+  startOf,
+  get
 } from './calendar-fns'
 
 describe('decade functions', () => {
   test('next', () => {
-    expect(getCurrentDecade(new Date(2018, 2, 28))).toBe(2010)
-    expect(getCurrentDecade(new Date(2020, 4, 4))).toBe(2018)
+    expect(getCurrentDecade(new Date(2018, 2, 28))).toEqual(new Date(2010, 0, 1))
+    expect(getCurrentDecade(new Date(2020, 4, 4))).toEqual(new Date(2018, 0, 1))
   })
 
   test('previous', () => {
-    expect(previousDecade(2020)).toBe(2006)
-    expect(previousDecade(2000)).toBe(1986)
-    expect(previousDecade(1990)).toBe(1978)
+    expect(previousDecade(2020)).toEqual(new Date(2006, 0, 1))
+    expect(previousDecade(2000)).toEqual(new Date(1986, 0, 1))
+    expect(previousDecade(1990)).toEqual(new Date(1978, 0, 1))
   })
 
   test('next', () => {
-    expect(nextDecade(2010)).toBe(2018)
-    expect(nextDecade(2020)).toBe(2030)
-    expect(nextDecade(2030)).toBe(2038)
+    expect(nextDecade(2010)).toEqual(new Date(2018, 0, 1))
+    expect(nextDecade(2020)).toEqual(new Date(2030, 0, 1))
+    expect(nextDecade(2030)).toEqual(new Date(2038, 0, 1))
   })
 
   test('together', () => {
     const date = new Date(2021, 11, 14)
-    expect(getCurrentDecade(date)).toBe(2018)
-    expect(getNextDecade(date)).toBe(2030)
+    expect(getCurrentDecade(date)).toEqual(new Date(2018, 0, 1))
+    expect(getNextDecade(date)).toEqual(new Date(2030, 0, 1))
   })
 })
 
@@ -145,5 +147,63 @@ describe('weekdays', () => {
 
   test('returns Mo-Su with an offset of 1', () => {
     expect(weekdays(1).join(' ')).toEqual('Mo Tu We Th Fr Sa Su')
+  })
+})
+
+describe('startOf', () => {
+  test('return start of calendar for month', () => {
+    const date = new Date(2018, 2, 22)
+
+    expect(startOf('month', date)).toEqual(new Date(2018, 1, 25))
+  })
+
+  test('return start of calendar for year', () => {
+    const date = new Date(2018, 2, 22)
+
+    expect(startOf('year', date)).toEqual(new Date(2018, 0, 1))
+  })
+
+  test('return start of calendar for decade', () => {
+    const date = new Date(2018, 2, 22)
+
+    expect(startOf('decade', date)).toEqual(new Date(2010, 0, 1))
+  })
+})
+
+describe('get, getNext, getPrevious', () => {
+  test('return start of calendar for previous month', () => {
+    const date = new Date(2018, 2, 22)
+
+    expect(get('previous', 'month', date)).toEqual(new Date(2018, 0, 28))
+  })
+
+  test('return start of calendar for next month', () => {
+    const date = new Date(2018, 2, 22)
+
+    expect(get('next', 'month', date)).toEqual(new Date(2018, 3, 1))
+  })
+
+  test('return start of calendar for previous year', () => {
+    const date = new Date(2018, 2, 22)
+
+    expect(get('previous', 'year', date)).toEqual(new Date(2016, 8, 1))
+  })
+
+  test('return start of calendar for next year', () => {
+    const date = new Date(2018, 2, 22)
+
+    expect(get('next', 'year', date)).toEqual(new Date(2019, 0, 1))
+  })
+
+  test('return start of calendar for previous decade', () => {
+    const date = new Date(2018, 2, 22)
+
+    expect(get('previous', 'decade', date)).toEqual(new Date(1998, 0, 1))
+  })
+
+  test('return start of calendar for next decade', () => {
+    const date = new Date(2018, 2, 22)
+
+    expect(get('next', 'decade', date)).toEqual(new Date(2018, 0, 1))
   })
 })

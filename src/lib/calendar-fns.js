@@ -1,13 +1,16 @@
 export const currentDecade = (decade) => {
-  return (decade - 2) + ((decade % 20) / 5)
+  const startingYear = (decade - 2) + ((decade % 20) / 5)
+  return new Date(startingYear, 0, 1)
 }
 
 export const nextDecade = (decade) => {
-  return (decade + 10) - (0.2 * (decade % 20))
+  const startingYear = (decade + 10) - (0.2 * (decade % 20))
+  return new Date(startingYear, 0, 1)
 }
 
 export const previousDecade = (decade) => {
-  return (decade - 14) + (0.2 * (decade % 20))
+  const startingYear = (decade - 14) + (0.2 * (decade % 20))
+  return new Date(startingYear, 0, 1)
 }
 
 const previousYear = (year) => {
@@ -106,4 +109,59 @@ export const getPreviousDecade = (date) => {
   const year = date.getFullYear()
   const decade = year - year % 10
   return previousDecade(decade)
+}
+
+export const startOf = (selector, date) => {
+  switch (selector) {
+    case 'decade':
+      return getCurrentDecade(date)
+    case 'year':
+      return getCurrentYear(date)
+    default:
+      return getCurrentMonth(date)
+  }
+}
+
+export const getCurrent = (duration) => {
+  switch (duration) {
+    case 'decade':
+      return getCurrentDecade
+    case 'year':
+      return getCurrentYear
+    default:
+      return getCurrentMonth
+  }
+}
+
+export const getNext = (duration, from) => {
+  switch (duration) {
+    case 'decade':
+      return getNextDecade(from)
+    case 'year':
+      return getNextYear(from)
+    default:
+      return getNextMonth(from)
+  }
+}
+
+export const getPrevious = (duration, from) => {
+  switch (duration) {
+    case 'decade':
+      return getPreviousDecade(from)
+    case 'year':
+      return getPreviousYear(from)
+    default:
+      return getPreviousMonth(from)
+  }
+}
+
+export const get = (direction, duration, from) => {
+  switch (direction) {
+    case 'next':
+      return getNext(duration, from)
+    case 'previous':
+      return getPrevious(duration, from)
+    default:
+      return getCurrent(duration, from)
+  }
 }
