@@ -1,6 +1,7 @@
 /* eslint-env jest */
 
 import {
+  buildDecade,
   buildYear,
   getCurrentYear,
   getNextMonth,
@@ -83,6 +84,18 @@ describe('buildYear', () => {
     expect(months.length).toBe(16)
     expect(months[0]).toEqual(new Date(2018, 0, 1))
     expect(months[15]).toEqual(new Date(2019, 3, 1))
+  })
+})
+
+describe('buildDecade', () => {
+  test('returns 16 months', () => {
+    const date = new Date(2018, 2, 28)
+    const firstDay = getCurrentDecade(date)
+    const years = buildDecade(firstDay)
+
+    expect(years.length).toBe(16)
+    expect(years[0]).toEqual(new Date(2010, 0, 1))
+    expect(years[15]).toEqual(new Date(2025, 0, 1))
   })
 })
 

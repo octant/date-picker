@@ -3,6 +3,7 @@ import React from 'react'
 import { Container } from './styles'
 import Month from './month'
 import Year from './year'
+import Decade from './decade'
 import TimeContainer from './time-container'
 import TimeTraveler from './time-traveler'
 
@@ -12,6 +13,14 @@ class Calendar extends React.Component {
 
     switch (mode) {
       case 'decade':
+        return <Decade
+          currentDate={startOfMonth}
+          startDate={startOfCalendar}
+          selected={selected}
+          today={today}
+          clickMethod={controls.selectDate}
+          modeMethod={controls.selectMode}
+          travelTo={controls.travelTo} />
       case 'year':
         return <Year
           currentDate={startOfMonth}

@@ -64,6 +64,15 @@ export const buildYear = (startDate) => {
   return [...months]
 }
 
+export const buildDecade = (startDate) => {
+  const years = []
+  for (let i = 0; i < 16; i++) {
+    years.push(new Date(startDate.getFullYear() + i, 0, 1))
+  }
+
+  return [...years]
+}
+
 export const weekdays = (offset = 0) => {
   const week = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
   return [...week.slice(offset), ...week.slice(0, offset)]
