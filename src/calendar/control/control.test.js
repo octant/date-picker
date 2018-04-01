@@ -2,37 +2,31 @@
 
 import React from 'react'
 import sinon from 'sinon'
-import Enzyme, {shallow} from 'enzyme'
+import Enzyme, {mount} from 'enzyme'
 import Adaptor from 'enzyme-adapter-react-16'
 
-import WithControl from './'
+import Control from './'
 
 Enzyme.configure({adapter: new Adaptor()})
 
-describe('WithControl functionality', () => {
+describe('Control functionality', () => {
   class TestComponent extends React.Component {
     render () {
       return (
-        <button>click me</button>
+        <Control id='2018-03-12'>
+          {control => (<div>{control.id}</div>)}
+        </Control>
       )
     }
   }
 
-  test('returns a wrapped component', () => {
-    const ControlledComponent = WithControl(TestComponent)
-    const control = shallow(<ControlledComponent clickMethod={jest.fn()} />)
-
-    expect(control.name()).toEqual('TestComponent')
-    expect(control.dive('button').length).toBe(1)
-  })
-
   test('wrapped component has a click handler', () => {
-    const clickMethod = sinon.spy()
-    const ControlledComponent = WithControl(TestComponent)
-    const control = shallow(<ControlledComponent clickMethod={clickMethod} />)
+    sinon.spy(Control.prototype, '_handleClick')
 
-    control.find('TestComponent').simulate('click')
+    const controlledComponent = mount(<TestComponent />)
+    controlledComponent.simulate('click')
+    expect(Control.prototype._handleClick.callCount).toBe(1)
 
-    expect(clickMethod.callCount).toBe(1)
+    Control.prototype._handleClick.restore()
   })
 })

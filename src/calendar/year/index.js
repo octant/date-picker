@@ -10,16 +10,29 @@ class Year extends React.Component {
   constructor (props) {
     super(props)
 
+    this._handleClick = this._handleClick.bind(this)
     this._handleNextClick = this._handleNextClick.bind(this)
     this._handlePreviousClick = this._handlePreviousClick.bind(this)
   }
 
+  _handleClick (props) {
+    this.props.clickMethod({...props, mode: 'month'})
+  }
+
   _handleNextClick () {
-    this.context.nextYearMethod()
+    if (this.props.travelTo) {
+      this.props.travelTo('next', 'year')
+    } else {
+      this.context.nextYearMethod()
+    }
   }
 
   _handlePreviousClick () {
-    this.context.previousYearMethod()
+    if (this.props.travelTo) {
+      this.props.travelTo('previous', 'year')
+    } else {
+      this.context.previousYearMethod()
+    }
   }
 
   items () {
@@ -33,10 +46,10 @@ class Year extends React.Component {
       months.push(
         <Item
           id={id}
-          clickMethod={this.props.clickMethod}
-          focused={(this.context.today || '').slice(0, 7) === id}
+          clickMethod={this._handleClick}
+          focused={(this.context.today || this.props.today || '').slice(0, 7) === id}
           muted={currentDate.slice(0, 4) !== id.slice(0, 4)}
-          selected={(this.context.selected || '').slice(0, 7) === id}
+          selected={(this.context.selected || this.props.selected || '').slice(0, 7) === id}
           label={monthNames[month.getMonth()]} />
       )
     })

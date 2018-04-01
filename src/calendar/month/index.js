@@ -15,21 +15,38 @@ class Month extends React.Component {
   constructor (props) {
     super(props)
 
+    this._handleClick = this._handleClick.bind(this)
     this._handleNextClick = this._handleNextClick.bind(this)
     this._handlePreviousClick = this._handlePreviousClick.bind(this)
     this._handleModeClick = this._handleModeClick.bind(this)
   }
 
+  _handleClick (props) {
+    this.props.clickMethod({...props, mode: 'month'})
+  }
+
   _handleNextClick () {
-    this.context.nextMonthMethod(format(this.props.startDate, 'YYYY-MM'))
+    if (this.props.travelTo) {
+      this.props.travelTo('next', 'month')
+    } else {
+      this.context.nextMonthMethod(format(this.props.startDate, 'YYYY-MM'))
+    }
   }
 
   _handlePreviousClick () {
-    this.context.previousMonthMethod(format(this.props.startDate, 'YYYY-MM'))
+    if (this.props.travelTo) {
+      this.props.travelTo('previous', 'month')
+    } else {
+      this.context.previousMonthMethod(format(this.props.startDate, 'YYYY-MM'))
+    }
   }
 
   _handleModeClick () {
-    this.context.modeMethod('year')
+    if (this.props.modeMethod) {
+      this.props.modeMethod('year')
+    } else {
+      this.context.modeMethod('year')
+    }
   }
 
   items () {
@@ -45,11 +62,11 @@ class Month extends React.Component {
       days.push(
         <Item
           id={dateString}
-          clickMethod={this.props.clickMethod}
+          clickMethod={this._handleClick}
           date={date}
-          focused={this.context.today === dateString}
+          focused={(this.context.today || this.props.today) === dateString}
           muted={currentDate.slice(0, 7) !== dateString.slice(0, 7)}
-          selected={this.context.selected === dateString}
+          selected={(this.context.selected || this.props.selected) === dateString}
           label={date.getDate()} />
       )
     })

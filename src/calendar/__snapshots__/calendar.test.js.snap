@@ -113,7 +113,7 @@ exports[`<Calendar /> appearance displays the same 1`] = `
   <button
     onClick={[Function]}
   >
-    2018-03-29
+    2018-04-01
   </button>
   <div
     className="css-1"
