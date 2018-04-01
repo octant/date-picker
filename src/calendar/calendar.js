@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { Container } from './styles'
-import { format } from '../lib/date-fns'
 import Month from './month'
 import Year from './year'
 import TimeContainer from './time-container'
@@ -12,10 +11,10 @@ class Calendar extends React.Component {
     return (
       <TimeTraveler>
         {fluxCapicitor => {
-          const {selected, startOfMonth, startOfCalendar, mode, controls} = fluxCapicitor
+          const {controls, mode, selected, startOfMonth, startOfCalendar, today} = fluxCapicitor
           return (
             <Container>
-              <button onClick={this._handleTodayClick}>{format(new Date(), 'YYYY-MM-DD')}</button>
+              <button onClick={controls.today}>{today}</button>
               <TimeContainer>
                 {
                   mode === 'month'
@@ -23,7 +22,7 @@ class Calendar extends React.Component {
                       currentDate={startOfMonth}
                       startDate={startOfCalendar}
                       selected={selected}
-                      today={format(new Date(), 'YYYY-MM-DD')}
+                      today={today}
                       clickMethod={controls.selectDate}
                       modeMethod={controls.selectMode}
                       travelTo={controls.travelTo} />
@@ -31,7 +30,7 @@ class Calendar extends React.Component {
                       currentDate={startOfMonth}
                       startDate={startOfCalendar}
                       selected={selected}
-                      today={format(new Date(), 'YYYY-MM')}
+                      today={today}
                       clickMethod={controls.selectDate}
                       modeMethod={controls.selectMode}
                       travelTo={controls.travelTo} />

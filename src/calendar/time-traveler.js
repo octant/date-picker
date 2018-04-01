@@ -1,5 +1,5 @@
 import React from 'react'
-import { get, stringToDate, startOf } from '../lib/date-fns'
+import { format, get, stringToDate, startOf } from '../lib/date-fns'
 import {
   startOf as startOfCalendar,
   get as calendarGet
@@ -13,6 +13,7 @@ class TimeTraveler extends React.Component {
     const mode = props.mode || 'month'
     this.state = {
       selected: props.selected,
+      today: format(new Date(), 'YYYY-MM-DD'),
       mode,
       startOfMonth: startOf(mode, currentDate),
       startOfCalendar: startOfCalendar(mode, currentDate)
@@ -21,6 +22,7 @@ class TimeTraveler extends React.Component {
     this.selectDate = this.selectDate.bind(this)
     this.selectMode = this.selectMode.bind(this)
     this.timeTravelTo = this.timeTravelTo.bind(this)
+    this.today = this.today.bind(this)
   }
 
   selectDate ({mode, date, id}) {
@@ -48,12 +50,20 @@ class TimeTraveler extends React.Component {
     })
   }
 
+  today () {
+    this.setState({
+      startOfMonth: startOf(this.state.mode, stringToDate(this.state.today)),
+      startOfCalendar: startOfCalendar(this.state.mode, stringToDate(this.state.today))
+    })
+  }
+
   render () {
     return (
       <div>
         {this.props.children({
           ...this.state,
           controls: {
+            today: this.today,
             selectDate: this.selectDate,
             selectMode: this.selectMode,
             travelTo: this.timeTravelTo
