@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Calendar from './calendar/calendar'
+import Calendar from './calendar'
 
 import './App.css'
 

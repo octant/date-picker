@@ -27,6 +27,12 @@ class Decade extends React.Component {
     this.props.travelTo('previous', 'decade')
   }
 
+  buttonLabel () {
+    const startYear = this.props.currentDate.getFullYear()
+    const decade = startYear - startYear % 10
+
+    return `${decade} - ${decade + 9}`
+  }
   items () {
     const years = []
     const currentDate = format(this.props.currentDate, 'YYYY-MM-DD')
@@ -53,7 +59,7 @@ class Decade extends React.Component {
       <div>
         <div>
           <button onClick={this._handlePreviousClick}> {'<'} </button>
-          <button disabled>{this.props.currentDate.getFullYear()}</button>
+          <button disabled>{this.buttonLabel()}</button>
           <button onClick={this._handleNextClick}> {'>'} </button>
         </div>
         <Grid items={this.items()} itemWidth={4.375} widthUnit={'em'} itemsWide={4} />

@@ -23,32 +23,9 @@ describe('<Calendar /> appearance', () => {
 })
 
 describe('<Calendar /> functionality', () => {
-  test('defaults to current month if a "selected" prop is not passed', () => {
-    const date = new Date()
-    const dateString = `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`
-    const calendar = mount(<Calendar />)
+  test('defaults to current month if a "selected" prop is not passed')
 
-    expect(calendar.find({id: dateString}).length).toBe(1)
-  })
+  test('loads correct dates when passed a selected date')
 
-  test('loads correct dates when passed a selected date', () => {
-    const date = new Date(2017, 11, 25)
-    const dateString = `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`
-
-    const calendar = mount(<Calendar selected={dateString} />)
-
-    expect(calendar.find({id: dateString}).length).toBe(1)
-  })
-
-  test('the selected item is set when a Item is clicked', () => {
-    const date = new Date()
-    const dateString = `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`
-    const calendar = mount(
-      <Calendar />
-    )
-
-    calendar.find({id: dateString}).first().simulate('click')
-
-    expect(calendar.state().selected).toEqual(dateString)
-  })
+  test('the selected item is set when a Item is clicked')
 })
