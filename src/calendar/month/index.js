@@ -26,27 +26,15 @@ class Month extends React.Component {
   }
 
   _handleNextClick () {
-    if (this.props.travelTo) {
-      this.props.travelTo('next', 'month')
-    } else {
-      this.context.nextMonthMethod(format(this.props.startDate, 'YYYY-MM'))
-    }
+    this.props.travelTo('next', 'month')
   }
 
   _handlePreviousClick () {
-    if (this.props.travelTo) {
-      this.props.travelTo('previous', 'month')
-    } else {
-      this.context.previousMonthMethod(format(this.props.startDate, 'YYYY-MM'))
-    }
+    this.props.travelTo('previous', 'month')
   }
 
   _handleModeClick () {
-    if (this.props.modeMethod) {
-      this.props.modeMethod('year')
-    } else {
-      this.context.modeMethod('year')
-    }
+    this.props.modeMethod('year')
   }
 
   items () {
@@ -64,9 +52,9 @@ class Month extends React.Component {
           id={dateString}
           clickMethod={this._handleClick}
           date={date}
-          focused={(this.context.today || this.props.today) === dateString}
+          focused={this.props.today === dateString}
           muted={currentDate.slice(0, 7) !== dateString.slice(0, 7)}
-          selected={(this.context.selected || this.props.selected) === dateString}
+          selected={this.props.selected === dateString}
           label={date.getDate()} />
       )
     })
@@ -91,14 +79,6 @@ class Month extends React.Component {
 Month.propTypes = {
   startDate: PropTypes.instanceOf(Date).isRequired,
   clickMethod: PropTypes.func
-}
-
-Month.contextTypes = {
-  selected: PropTypes.string,
-  today: PropTypes.string,
-  nextMonthMethod: PropTypes.func,
-  previousMonthMethod: PropTypes.func,
-  modeMethod: PropTypes.func
 }
 
 export default Month

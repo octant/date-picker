@@ -20,19 +20,11 @@ class Year extends React.Component {
   }
 
   _handleNextClick () {
-    if (this.props.travelTo) {
-      this.props.travelTo('next', 'year')
-    } else {
-      this.context.nextYearMethod()
-    }
+    this.props.travelTo('next', 'year')
   }
 
   _handlePreviousClick () {
-    if (this.props.travelTo) {
-      this.props.travelTo('previous', 'year')
-    } else {
-      this.context.previousYearMethod()
-    }
+    this.props.travelTo('previous', 'year')
   }
 
   items () {
@@ -47,9 +39,9 @@ class Year extends React.Component {
         <Item
           id={id}
           clickMethod={this._handleClick}
-          focused={(this.context.today || this.props.today || '').slice(0, 7) === id}
+          focused={(this.props.today || '').slice(0, 7) === id}
           muted={currentDate.slice(0, 4) !== id.slice(0, 4)}
-          selected={(this.context.selected || this.props.selected || '').slice(0, 7) === id}
+          selected={(this.props.selected || '').slice(0, 7) === id}
           label={monthNames[month.getMonth()]} />
       )
     })
@@ -74,14 +66,6 @@ class Year extends React.Component {
 Year.propTypes = {
   startDate: PropTypes.instanceOf(Date).isRequired,
   clickMethod: PropTypes.func
-}
-
-Year.contextTypes = {
-  selected: PropTypes.string,
-  currentDate: PropTypes.string,
-  today: PropTypes.string,
-  nextYearMethod: PropTypes.func,
-  previousYearMethod: PropTypes.func
 }
 
 export default Year
