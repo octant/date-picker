@@ -42,8 +42,8 @@ class TimeSpan extends React.Component {
 
   handleModeClick () {
     const index = this.state.spans.indexOf(this.props.span)
-
-    this.props.controls.span(this.state.spans[index + 1])
+    const newIndex = index > this.state.spans.length ? index : index + 1
+    this.props.controls.span(this.state.spans[newIndex])
   }
 
   items () {
@@ -139,7 +139,7 @@ class TimeSpan extends React.Component {
       <div>
         <div>
           <button onClick={this.handlePreviousClick}> {'<'} </button>
-          <button onClick={this.handleModeClick}>{this.buttonLabel()}</button>
+          <button disabled={this.state.spans.indexOf(this.props.span) === this.state.spans.length - 1} onClick={this.handleModeClick}>{this.buttonLabel()}</button>
           <button onClick={this.handleNextClick}> {'>'} </button>
         </div>
         <Grid items={this.items()} itemWidth={sizes['itemWidth']} widthUnit={sizes['widthUnit']} itemsWide={sizes['itemsWide']} />
