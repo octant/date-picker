@@ -44,11 +44,10 @@ exports[`<Calendar /> appearance displays the same 1`] = `
   margin: 0em;
   text-align: center;
   background-color: orangered;
-  color: #FFF;
+  color: #BBB;
   width: 2.5em;
   height: 2.5em;
-  line-height: calc(2.5em - 2px);
-  border: 1px #FFF solid;
+  line-height: 2.5em;
 }
 
 .css-4:hover,
@@ -90,11 +89,13 @@ exports[`<Calendar /> appearance displays the same 1`] = `
   float: left;
   margin: 0em;
   text-align: center;
-  background-color: orangered;
-  color: #BBB;
+  background-color: white;
+  color: orangered;
   width: 2.5em;
   height: 2.5em;
-  line-height: 2.5em;
+  line-height: calc(2.5em - 2px);
+  font-weight: bold;
+  border: 1px #0A64A4 solid;
 }
 
 .css-8:hover,
@@ -130,7 +131,7 @@ exports[`<Calendar /> appearance displays the same 1`] = `
           <button
             onClick={[Function]}
           >
-            04, 2018
+            06, 2019
           </button>
           <button
             onClick={[Function]}
@@ -189,6 +190,42 @@ exports[`<Calendar /> appearance displays the same 1`] = `
             className="css-4"
             onClick={[Function]}
           >
+            26
+          </div>
+          <div
+            className="css-4"
+            onClick={[Function]}
+          >
+            27
+          </div>
+          <div
+            className="css-4"
+            onClick={[Function]}
+          >
+            28
+          </div>
+          <div
+            className="css-4"
+            onClick={[Function]}
+          >
+            29
+          </div>
+          <div
+            className="css-4"
+            onClick={[Function]}
+          >
+            30
+          </div>
+          <div
+            className="css-4"
+            onClick={[Function]}
+          >
+            31
+          </div>
+          <div
+            className="css-6"
+            onClick={[Function]}
+          >
             1
           </div>
           <div
@@ -204,7 +241,7 @@ exports[`<Calendar /> appearance displays the same 1`] = `
             3
           </div>
           <div
-            className="css-6"
+            className="css-8"
             onClick={[Function]}
           >
             4
@@ -366,76 +403,40 @@ exports[`<Calendar /> appearance displays the same 1`] = `
             30
           </div>
           <div
-            className="css-8"
+            className="css-4"
             onClick={[Function]}
           >
             1
           </div>
           <div
-            className="css-8"
+            className="css-4"
             onClick={[Function]}
           >
             2
           </div>
           <div
-            className="css-8"
+            className="css-4"
             onClick={[Function]}
           >
             3
           </div>
           <div
-            className="css-8"
+            className="css-4"
             onClick={[Function]}
           >
             4
           </div>
           <div
-            className="css-8"
+            className="css-4"
             onClick={[Function]}
           >
             5
           </div>
           <div
-            className="css-8"
+            className="css-4"
             onClick={[Function]}
           >
             6
-          </div>
-          <div
-            className="css-8"
-            onClick={[Function]}
-          >
-            7
-          </div>
-          <div
-            className="css-8"
-            onClick={[Function]}
-          >
-            8
-          </div>
-          <div
-            className="css-8"
-            onClick={[Function]}
-          >
-            9
-          </div>
-          <div
-            className="css-8"
-            onClick={[Function]}
-          >
-            10
-          </div>
-          <div
-            className="css-8"
-            onClick={[Function]}
-          >
-            11
-          </div>
-          <div
-            className="css-8"
-            onClick={[Function]}
-          >
-            12
           </div>
         </div>
       </div>

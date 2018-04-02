@@ -44,7 +44,7 @@ class Calendar extends React.Component {
 
   render () {
     return (
-      <TimeTraveler>
+      <TimeTraveler mode={this.props.mode} selected={this.props.selected}>
         {fluxCapacitor => {
           const {controls} = fluxCapacitor
           return (
