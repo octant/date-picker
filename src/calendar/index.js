@@ -5,7 +5,7 @@ import Month from './month'
 import Year from './year'
 import Decade from './decade'
 import TimeContainer from './time-container'
-import TimeTraveler from './time-machine'
+import TimeMachine from './time-machine'
 
 class Calendar extends React.Component {
   show (state) {
@@ -44,7 +44,7 @@ class Calendar extends React.Component {
 
   render () {
     return (
-      <TimeTraveler mode={this.props.mode} selected={this.props.selected}>
+      <TimeMachine mode={this.props.mode} selected={this.props.selected}>
         {tmState => {
           return (
             <Container>
@@ -55,7 +55,7 @@ class Calendar extends React.Component {
             </Container>
           )
         }}
-      </TimeTraveler>
+      </TimeMachine>
     )
   }
 }
