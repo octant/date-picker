@@ -61,7 +61,7 @@ class TimeSpan extends React.Component {
       let label, id, selected, muted, focused
       switch (this.props.span) {
         case 'decade':
-          id = format(date, 'YYYY')
+          id = dateString.slice(0, 4)
           label = format(date, 'YYYY')
           selected = (this.props.selected || '').slice(0, 4) === id
           muted = startOfMonth.slice(0, 3) !== id.slice(0, 3)

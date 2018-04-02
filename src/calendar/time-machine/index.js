@@ -26,8 +26,9 @@ class TimeTraveler extends React.Component {
   }
 
   selectDate ({mode, date, id}) {
+    // TODO better way to determine if selected should be set
     this.setState({
-      selected: id,
+      selected: id.length === 10 ? id : this.state.selected,
       mode,
       startOfMonth: startOf(mode, stringToDate(id)),
       startOfCalendar: startOfCalendar(mode, stringToDate(id))
