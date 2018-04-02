@@ -45,13 +45,12 @@ class Calendar extends React.Component {
   render () {
     return (
       <TimeTraveler mode={this.props.mode} selected={this.props.selected}>
-        {fluxCapacitor => {
-          const {controls} = fluxCapacitor
+        {ttState => {
           return (
             <Container>
-              <button onClick={controls.today}>Today</button>
+              <button onClick={ttState.controls.today}>Today</button>
               <TimeContainer>
-                {this.show(fluxCapacitor)}
+                {this.show(ttState)}
               </TimeContainer>
             </Container>
           )
