@@ -32,15 +32,13 @@ export const stringToDate = (dateString) => {
 
 export const startOf = (selector, date) => {
   switch (selector) {
-    case 'month':
-      return new Date(date.getFullYear(), date.getMonth(), 1)
-    case 'year':
-      return new Date(date.getFullYear(), 0, 1)
     case 'decade':
       const decade = date.getFullYear() - date.getFullYear() % 10
       return new Date(decade, 0, 1)
+    case 'year':
+      return new Date(date.getFullYear(), 0, 1)
     default:
-      return date
+      return new Date(date.getFullYear(), date.getMonth(), 1)
   }
 }
 
