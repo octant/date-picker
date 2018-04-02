@@ -1,9 +1,9 @@
 import React from 'react'
-import { format, get, stringToDate, startOf } from '../lib/date-fns'
+import { format, get, stringToDate, startOf } from '../../lib/date-fns'
 import {
   startOf as startOfCalendar,
   get as calendarGet
-} from '../lib/calendar-fns'
+} from '../../lib/calendar-fns'
 
 class TimeTraveler extends React.Component {
   constructor (props) {
