@@ -44,29 +44,29 @@ export const startOf = (selector, date) => {
   }
 }
 
-export const getNextDecade = (date) => {
+const getNextDecade = (date) => {
   const decade = date.getFullYear() - date.getFullYear() % 10
   return new Date(decade + 10, 0, 1)
 }
 
-export const getNextYear = (date) => {
+const getNextYear = (date) => {
   return new Date(date.getFullYear() + 1, 0, 1)
 }
 
-export const getNextMonth = (date) => {
+const getNextMonth = (date) => {
   return new Date(date.getFullYear(), date.getMonth() + 1, 1)
 }
 
-export const getPreviousDecade = (date) => {
+const getPreviousDecade = (date) => {
   const decade = date.getFullYear() - date.getFullYear() % 10
   return new Date(decade - 10, 0, 1)
 }
 
-export const getPreviousYear = (date) => {
+const getPreviousYear = (date) => {
   return new Date(date.getFullYear() - 1, 0, 1)
 }
 
-export const getPreviousMonth = (date) => {
+const getPreviousMonth = (date) => {
   return new Date(date.getFullYear(), date.getMonth() - 1, 1)
 }
 
