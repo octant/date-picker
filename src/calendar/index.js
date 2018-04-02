@@ -5,7 +5,7 @@ import Month from './month'
 import Year from './year'
 import Decade from './decade'
 import TimeContainer from './time-container'
-import TimeTraveler from './time-traveler'
+import TimeTraveler from './time-machine'
 
 class Calendar extends React.Component {
   show (state) {
