@@ -73,6 +73,17 @@ export const buildDecade = (startDate) => {
   return [...years]
 }
 
+export const build = (duration, startDate) => {
+  switch (duration) {
+    case 'decade':
+      return buildDecade(startDate)
+    case 'year':
+      return buildYear(startDate)
+    default:
+      return buildMonth(startDate)
+  }
+}
+
 export const weekdays = (offset = 0) => {
   const week = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
   return [...week.slice(offset), ...week.slice(0, offset)]
@@ -131,14 +142,14 @@ export const startOf = (selector, date) => {
   }
 }
 
-export const getCurrent = (duration) => {
+export const getCurrent = (duration, from) => {
   switch (duration) {
     case 'decade':
-      return getCurrentDecade
+      return getCurrentDecade(from)
     case 'year':
-      return getCurrentYear
+      return getCurrentYear(from)
     default:
-      return getCurrentMonth
+      return getCurrentMonth(from)
   }
 }
 
