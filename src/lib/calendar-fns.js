@@ -46,7 +46,7 @@ const nextMonth = (year, month, offset) => {
   }
 }
 
-export const buildCalendar = (startDate) => {
+export const buildMonth = (startDate) => {
   const days = []
   for (let offset = 0; offset < 42; offset++) {
     days.push(new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + offset))

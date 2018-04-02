@@ -4,7 +4,7 @@ import Grid from '../grid'
 import Item from '../item'
 
 import {
-  buildCalendar,
+  buildMonth,
   weekdays
 } from '../../lib/calendar-fns'
 import {
@@ -44,7 +44,7 @@ class Month extends React.Component {
       days.push(<Item label={weekday} />)
     })
 
-    buildCalendar(this.props.startDate).forEach((date) => {
+    buildMonth(this.props.startDate).forEach((date) => {
       const dateString = format(date, 'YYYY-MM-DD')
       const currentDate = format(this.props.currentDate, 'YYYY-MM-DD')
       days.push(
