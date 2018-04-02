@@ -4,9 +4,9 @@ import React from 'react'
 import Enzyme, {mount} from 'enzyme'
 import Adaptor from 'enzyme-adapter-react-16'
 
-import Calendar from './time-traveler'
-import { format } from '../lib/date-fns'
-import { getCurrentMonth } from '../lib/calendar-fns'
+import Calendar from './'
+import { format } from '../../lib/date-fns'
+import { getCurrentMonth } from '../../lib/calendar-fns'
 
 Enzyme.configure({adapter: new Adaptor()})
 
