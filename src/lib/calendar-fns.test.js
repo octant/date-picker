@@ -1,26 +1,20 @@
 /* eslint-env jest */
 
 import {
-  buildDecade,
-  buildYear,
-  getCurrentYear,
+  build,
+  get,
   getNextMonth,
-  getNextYear,
   getPreviousMonth,
-  getPreviousYear,
-  weekdays,
-  previousDecade,
   nextDecade,
-  getNextDecade,
-  getCurrentDecade,
+  previousDecade,
   startOf,
-  get
+  weekdays
 } from './calendar-fns'
 
 describe('decade functions', () => {
   test('next', () => {
-    expect(getCurrentDecade(new Date(2018, 2, 28))).toEqual(new Date(2010, 0, 1))
-    expect(getCurrentDecade(new Date(2020, 4, 4))).toEqual(new Date(2018, 0, 1))
+    expect(get('current', 'decade', new Date(2018, 2, 28))).toEqual(new Date(2010, 0, 1))
+    expect(get('current', 'decade', new Date(2020, 4, 4))).toEqual(new Date(2018, 0, 1))
   })
 
   test('previous', () => {
@@ -37,15 +31,15 @@ describe('decade functions', () => {
 
   test('together', () => {
     const date = new Date(2021, 11, 14)
-    expect(getCurrentDecade(date)).toEqual(new Date(2018, 0, 1))
-    expect(getNextDecade(date)).toEqual(new Date(2030, 0, 1))
+    expect(get('current', 'decade', date)).toEqual(new Date(2018, 0, 1))
+    expect(get('next', 'decade', date)).toEqual(new Date(2030, 0, 1))
   })
 })
 
 describe('getPreviousYear', () => {
   test('gets the first date to display for the previous year', () => {
     const date = new Date(2018, 2, 28)
-    const firstDay = getPreviousYear(date)
+    const firstDay = get('previous', 'year', date)
 
     expect(firstDay.getDate()).toBe(1)
     expect(firstDay.getMonth()).toBe(8)
@@ -56,7 +50,7 @@ describe('getPreviousYear', () => {
 describe('getNextYear', () => {
   test('gets the first date to display for the next year', () => {
     const date = new Date(2018, 2, 28)
-    const firstDay = getNextYear(date)
+    const firstDay = get('next', 'year', date)
 
     expect(firstDay.getDate()).toBe(1)
     expect(firstDay.getMonth()).toBe(0)
@@ -67,7 +61,7 @@ describe('getNextYear', () => {
 describe('getCurrentYear', () => {
   test('gets the first date to display for the next year', () => {
     const date = new Date(2018, 2, 28)
-    const firstDay = getCurrentYear(date)
+    const firstDay = get('current', 'year', date)
 
     expect(firstDay.getDate()).toBe(1)
     expect(firstDay.getMonth()).toBe(0)
@@ -75,11 +69,23 @@ describe('getCurrentYear', () => {
   })
 })
 
-describe('buildYear', () => {
+describe('build month', () => {
+  test('returns 42 days', () => {
+    const date = new Date(2018, 2, 28)
+    const firstDay = get('current', 'month', date)
+    const months = build('month', firstDay)
+
+    expect(months.length).toBe(42)
+    expect(months[0]).toEqual(new Date(2018, 1, 25))
+    expect(months[41]).toEqual(new Date(2018, 3, 7))
+  })
+})
+
+describe('build year', () => {
   test('returns 16 months', () => {
     const date = new Date(2018, 2, 28)
-    const firstDay = getCurrentYear(date)
-    const months = buildYear(firstDay)
+    const firstDay = get('current', 'year', date)
+    const months = build('year', firstDay)
 
     expect(months.length).toBe(16)
     expect(months[0]).toEqual(new Date(2018, 0, 1))
@@ -87,11 +93,11 @@ describe('buildYear', () => {
   })
 })
 
-describe('buildDecade', () => {
-  test('returns 16 months', () => {
+describe('build decade', () => {
+  test('returns 16 years', () => {
     const date = new Date(2018, 2, 28)
-    const firstDay = getCurrentDecade(date)
-    const years = buildDecade(firstDay)
+    const firstDay = get('current', 'decade', date)
+    const years = build('decade', firstDay)
 
     expect(years.length).toBe(16)
     expect(years[0]).toEqual(new Date(2010, 0, 1))
@@ -129,7 +135,7 @@ describe('getPreviousMonth', () => {
 describe('getNextMonth', () => {
   test('gets the first date to display for the next month', () => {
     const date = new Date(2018, 2, 23)
-    const firstDay = getNextMonth(date)
+    const firstDay = get('next', 'month', date)
 
     expect(firstDay.getDate()).toBe(1)
     expect(firstDay.getMonth()).toBe(3)
