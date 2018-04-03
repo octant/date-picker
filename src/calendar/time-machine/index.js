@@ -5,7 +5,7 @@ import {
   get as calendarGet
 } from '../../lib/calendar-fns'
 
-class TimeTraveler extends React.Component {
+class TimeMachine extends React.Component {
   constructor (props) {
     super(props)
 
@@ -75,4 +75,4 @@ class TimeTraveler extends React.Component {
   }
 }
 
-export default TimeTraveler
+export default TimeMachine
