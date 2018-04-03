@@ -129,6 +129,7 @@ exports[`<Calendar /> appearance displays the same 1`] = `
              
           </button>
           <button
+            disabled={false}
             onClick={[Function]}
           >
             06, 2019

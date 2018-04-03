@@ -23,9 +23,15 @@ describe('<Calendar /> appearance', () => {
 })
 
 describe('<Calendar /> functionality', () => {
-  test('defaults to current month if a "selected" prop is not passed')
+  test('has a TimeMachine', () => {
+    const calendar = mount(<Calendar />)
 
-  test('loads correct dates when passed a selected date')
+    expect(calendar.find('TimeMachine').length).toBe(1)
+  })
 
-  test('the selected item is set when a Item is clicked')
+  test('has a TimeSpan', () => {
+    const calendar = mount(<Calendar />)
+
+    expect(calendar.find('TimeSpan').length).toBe(1)
+  })
 })
