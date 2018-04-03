@@ -8,7 +8,8 @@ import {
   nextDecade,
   previousDecade,
   startOf,
-  weekdays
+  weekdays,
+  weekOfMonth
 } from './calendar-fns'
 
 describe('decade functions', () => {
@@ -156,6 +157,21 @@ describe('getNextMonth', () => {
 
     expect(firstDay.getDate()).toBe(30)
     expect(firstDay.getMonth()).toBe(3)
+  })
+})
+
+describe('weekOfMonth', () => {
+  test('returns the 0-indexed week of the month', () => {
+    // 2018-03-02
+    expect(weekOfMonth(new Date(2018, 2, 1).getDay(), 2)).toBe(0)
+    // 2018-01-13
+    expect(weekOfMonth(new Date(2018, 0, 1).getDay(), 13)).toBe(1)
+    // 2018-12-15
+    expect(weekOfMonth(new Date(2018, 11, 1).getDay(), 15)).toBe(2)
+    // 2018-06-23
+    expect(weekOfMonth(new Date(2018, 5, 1).getDay(), 23)).toBe(3)
+    // 2018-02-28
+    expect(weekOfMonth(new Date(2018, 1, 1).getDay(), 28)).toBe(4)
   })
 })
 

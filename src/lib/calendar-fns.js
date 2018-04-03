@@ -84,6 +84,10 @@ export const build = (duration, startDate) => {
   }
 }
 
+export const weekOfMonth = (monthStart, date) => {
+  return Math.floor((date - 1 + monthStart) / 7)
+}
+
 export const weekdays = (offset = 0) => {
   const week = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
   return [...week.slice(offset), ...week.slice(0, offset)]
