@@ -1,21 +1,19 @@
-import React from 'react'
+import React from "react";
 
 class Control extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
 
-    this._handleClick = this._handleClick.bind(this)
+    this._handleClick = this._handleClick.bind(this);
   }
 
-  _handleClick () {}
+  _handleClick() {}
 
-  render () {
+  render() {
     return (
-      <div onClick={this._handleClick}>
-        {this.props.children(this.props)}
-      </div>
-    )
+      <div onClick={this._handleClick}>{this.props.children(this.props)}</div>
+    );
   }
 }
 
-export default Control
+export default Control;

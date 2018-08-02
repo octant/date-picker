@@ -1,16 +1,23 @@
-import React from 'react'
+import React from "react";
 
-import { Container } from './styles'
-import TimeContainer from './time-container'
-import TimeMachine from './time-machine'
-import TimeSpan from './time-span'
+import { Container } from "./styles";
+import TimeContainer from "./time-container";
+import TimeMachine from "./time-machine";
+import TimeSpan from "./time-span";
 
 class Calendar extends React.Component {
-  render () {
+  render() {
     return (
       <TimeMachine mode={this.props.mode} selected={this.props.selected}>
         {tmState => {
-          const {controls, mode, selected, startOfMonth, startOfCalendar, today} = tmState
+          const {
+            controls,
+            mode,
+            selected,
+            startOfMonth,
+            startOfCalendar,
+            today
+          } = tmState;
           return (
             <Container>
               <button onClick={tmState.controls.today}>Today</button>
@@ -25,14 +32,15 @@ class Calendar extends React.Component {
                     select: controls.selectDate,
                     travelTo: controls.travelTo,
                     span: controls.selectMode
-                  }} />
+                  }}
+                />
               </TimeContainer>
             </Container>
-          )
+          );
         }}
       </TimeMachine>
-    )
+    );
   }
 }
 
-export default Calendar
+export default Calendar;

@@ -1,7 +1,7 @@
-import glamorous from 'glamorous'
+import glamorous from "glamorous";
 
 export const Container = glamorous.div({
   position: `absolute`,
-  backgroundColor: 'cyan',
+  backgroundColor: "cyan",
   padding: `0.5em`
-})
+});

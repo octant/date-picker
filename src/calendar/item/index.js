@@ -1,21 +1,21 @@
-import React from 'react'
+import React from "react";
 
-import {StyledItem} from './styles'
+import { StyledItem } from "./styles";
 
 class Item extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
 
-    this._handleClick = this._handleClick.bind(this)
+    this._handleClick = this._handleClick.bind(this);
   }
 
-  _handleClick () {
+  _handleClick() {
     if (this.props.clickMethod) {
-      this.props.clickMethod({...this.props})
+      this.props.clickMethod({ ...this.props });
     }
   }
 
-  render () {
+  render() {
     return (
       <StyledItem
         width={this.props.width}
@@ -25,11 +25,12 @@ class Item extends React.Component {
         muted={this.props.muted}
         focused={this.props.focused}
         selected={this.props.selected}
-        highlighted={this.props.highlighted}>
+        highlighted={this.props.highlighted}
+      >
         {this.props.label}
       </StyledItem>
-    )
+    );
   }
 }
 
-export default Item
+export default Item;

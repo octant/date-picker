@@ -1,32 +1,30 @@
 /* eslint-env jest */
 
-import React from 'react'
-import sinon from 'sinon'
-import Enzyme, {mount} from 'enzyme'
-import Adaptor from 'enzyme-adapter-react-16'
+import React from "react";
+import sinon from "sinon";
+import Enzyme, { mount } from "enzyme";
+import Adaptor from "enzyme-adapter-react-16";
 
-import Control from './'
+import Control from "./";
 
-Enzyme.configure({adapter: new Adaptor()})
+Enzyme.configure({ adapter: new Adaptor() });
 
-describe('Control functionality', () => {
+describe("Control functionality", () => {
   class TestComponent extends React.Component {
-    render () {
+    render() {
       return (
-        <Control id='2018-03-12'>
-          {control => (<div>{control.id}</div>)}
-        </Control>
-      )
+        <Control id="2018-03-12">{control => <div>{control.id}</div>}</Control>
+      );
     }
   }
 
-  test('wrapped component has a click handler', () => {
-    sinon.spy(Control.prototype, '_handleClick')
+  test("wrapped component has a click handler", () => {
+    sinon.spy(Control.prototype, "_handleClick");
 
-    const controlledComponent = mount(<TestComponent />)
-    controlledComponent.simulate('click')
-    expect(Control.prototype._handleClick.callCount).toBe(1)
+    const controlledComponent = mount(<TestComponent />);
+    controlledComponent.simulate("click");
+    expect(Control.prototype._handleClick.callCount).toBe(1);
 
-    Control.prototype._handleClick.restore()
-  })
-})
+    Control.prototype._handleClick.restore();
+  });
+});
