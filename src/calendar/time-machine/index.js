@@ -27,38 +27,35 @@ class TimeMachine extends React.Component {
 
   selectDate({ mode, id }) {
     // TODO better way to determine if selected should be set
-    this.setState({
-      selected: id.length === 10 ? id : this.state.selected,
+    this.setState(prev => ({
+      selected: id.length === 10 ? id : prev.selected,
       mode,
       startOfMonth: startOf(mode, stringToDate(id)),
       startOfCalendar: startOfCalendar(mode, stringToDate(id))
-    });
+    }));
   }
 
   selectMode(mode) {
-    this.setState({
+    this.setState(prev => ({
       mode,
-      startOfMonth: startOf(mode, this.state.startOfMonth),
-      startOfCalendar: startOfCalendar(mode, this.state.startOfMonth)
-    });
+      startOfMonth: startOf(mode, prev.startOfMonth),
+      startOfCalendar: startOfCalendar(mode, prev.startOfMonth)
+    }));
   }
 
   timeTravelTo(direction, duration) {
-    this.setState({
+    this.setState(prev => ({
       mode: duration,
-      startOfMonth: get(direction, duration, this.state.startOfMonth),
-      startOfCalendar: calendarGet(direction, duration, this.state.startOfMonth)
-    });
+      startOfMonth: get(direction, duration, prev.startOfMonth),
+      startOfCalendar: calendarGet(direction, duration, prev.startOfMonth)
+    }));
   }
 
   today() {
-    this.setState({
-      startOfMonth: startOf(this.state.mode, stringToDate(this.state.today)),
-      startOfCalendar: startOfCalendar(
-        this.state.mode,
-        stringToDate(this.state.today)
-      )
-    });
+    this.setState(prev => ({
+      startOfMonth: startOf(prev.mode, stringToDate(prev.today)),
+      startOfCalendar: startOfCalendar(prev.mode, stringToDate(prev.today))
+    }));
   }
 
   render() {
