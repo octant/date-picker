@@ -19,7 +19,6 @@ class TimeSpan extends React.Component {
   }
 
   handleClick(props) {
-    console.log(this.props.span);
     const index = this.spans.indexOf(this.props.span);
     const newIndex = index === 0 ? 0 : index - 1;
     this.props.controls.select({ ...props, mode: this.spans[newIndex] });
