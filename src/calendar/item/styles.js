@@ -7,7 +7,7 @@ export const StyledItem = glamorous.div(
     float: `left`,
     margin: `0em`,
     textAlign: `center`,
-    backgroundColor: "orangered",
+    backgroundColor: "rgba(0, 0, 0, 0)",
     color: `white`
   },
   ({ width, units, clickable, selected, muted, focused }) => {
@@ -25,7 +25,7 @@ export const StyledItem = glamorous.div(
       style.lineHeight = `calc(${style.height} - 2px)`;
       style.border = `1px #FFF solid`;
       style.color = `#FFF`;
-      style.backgroundColor = "orangered";
+      style.backgroundColor = "rgb(0, 120, 215)";
     }
 
     if (muted) {
@@ -36,7 +36,7 @@ export const StyledItem = glamorous.div(
       style.lineHeight = `calc(${style.height} - 2px)`;
       style.fontWeight = `bold`;
       style.border = `1px #0A64A4 solid`;
-      style.color = `orangered`;
+      style.color = "rgb(0, 90, 161)";
       style.backgroundColor = "white";
     }
 

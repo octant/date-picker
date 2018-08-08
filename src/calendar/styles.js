@@ -2,6 +2,5 @@ import glamorous from "glamorous";
 
 export const Container = glamorous.div({
   position: `absolute`,
-  backgroundColor: "cyan",
-  padding: `0.5em`
+  backgroundColor: "rgba(0, 0, 0, 0.7)"
 });
