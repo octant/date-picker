@@ -26,8 +26,9 @@ class TimeMachine extends React.Component {
   }
 
   selectDate({ mode, id }) {
+    // TODO better way to determine if selected should be set
     this.setState({
-      selected: mode === "month" ? id : this.state.selected,
+      selected: id.length === 10 ? id : this.state.selected,
       mode,
       startOfMonth: startOf(mode, stringToDate(id)),
       startOfCalendar: startOfCalendar(mode, stringToDate(id))
