@@ -10,9 +10,7 @@ class TimeSpan extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      spans: ["month", "year", "decade"]
-    };
+    this.spans = ["month", "year", "decade"];
 
     this.handleClick = this.handleClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
@@ -21,9 +19,10 @@ class TimeSpan extends React.Component {
   }
 
   handleClick(props) {
-    const index = this.state.spans.indexOf(this.props.span);
+    console.log(this.props.span);
+    const index = this.spans.indexOf(this.props.span);
     const newIndex = index === 0 ? 0 : index - 1;
-    this.props.controls.select({ ...props, mode: this.state.spans[newIndex] });
+    this.props.controls.select({ ...props, mode: this.spans[newIndex] });
   }
 
   handleNextClick() {
@@ -35,9 +34,9 @@ class TimeSpan extends React.Component {
   }
 
   handleModeClick() {
-    const index = this.state.spans.indexOf(this.props.span);
-    const newIndex = index > this.state.spans.length ? index : index + 1;
-    this.props.controls.span(this.state.spans[newIndex]);
+    const index = this.spans.indexOf(this.props.span);
+    const newIndex = index > this.spans.length ? index : index + 1;
+    this.props.controls.span(this.spans[newIndex]);
   }
 
   items() {
@@ -135,8 +134,7 @@ class TimeSpan extends React.Component {
           <button onClick={this.handlePreviousClick}> {"<"} </button>
           <button
             disabled={
-              this.state.spans.indexOf(this.props.span) ===
-              this.state.spans.length - 1
+              this.spans.indexOf(this.props.span) === this.spans.length - 1
             }
             onClick={this.handleModeClick}
           >
