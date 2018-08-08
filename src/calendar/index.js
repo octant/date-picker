@@ -22,7 +22,7 @@ class Calendar extends React.Component {
           return (
             <Container>
               <div style={{ padding: `0.5em 0.5em 0 0.5em` }}>
-                <button onClick={tmState.controls.today}>
+                <button onClick={controls.today}>
                   {format(today, "dddd, MMMM D, YYYY")}
                 </button>
               </div>
