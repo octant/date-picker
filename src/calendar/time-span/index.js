@@ -4,7 +4,7 @@ import Grid from "../grid";
 import Item from "../item";
 
 import { build, weekdays } from "../../lib/calendar-fns";
-import { format, monthValues } from "../../lib/date-fns";
+import { format } from "date-fns";
 
 class TimeSpan extends React.Component {
   constructor(props) {
@@ -62,9 +62,8 @@ class TimeSpan extends React.Component {
           focused = (this.props.today || "").slice(0, 4) === id;
           break;
         case "year":
-          const monthNames = monthValues.abbreviated;
           id = dateString.slice(0, 7);
-          label = monthNames[date.getMonth()];
+          label = format(date, "MMM");
           selected = (this.props.selected || "").slice(0, 7) === id;
           muted = startOfMonth.slice(0, 4) !== id.slice(0, 4);
           focused = (this.props.today || "").slice(0, 7) === id;
@@ -124,7 +123,7 @@ class TimeSpan extends React.Component {
       case "year":
         return this.props.startOfMonth.getFullYear();
       default:
-        return format(this.props.startOfMonth, "MM, YYYY");
+        return format(this.props.startOfMonth, "MMMM YYYY");
     }
   }
 
