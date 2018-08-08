@@ -25,7 +25,7 @@ class TimeMachine extends React.Component {
     this.today = this.today.bind(this);
   }
 
-  selectDate({ mode, date, id }) {
+  selectDate({ mode, id }) {
     // TODO better way to determine if selected should be set
     this.setState({
       selected: id.length === 10 ? id : this.state.selected,
